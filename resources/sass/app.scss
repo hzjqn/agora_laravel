@@ -1,0 +1,506 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// imports
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|PT+Serif:400,700');
+
+// Medidas
+$_navbar_height: 64px;
+$_navbar_max_height: 448px;
+$_margin_root: 8px;
+
+// Colores
+$_lightgrey: #EBEBEB;
+$_grey: #aaa;
+$_darkgrey: #123;
+$_white: #fff;
+$_black: #323232;
+$_mainc: #0098ff;
+$_goodgreen: #95ee7a;
+
+// Mixins
+@mixin user-select-none($value){
+	user-select: $value;
+	-moz-user-select: $value;
+	-webkit-user-select: $value;
+	-ms-user-select: $value;	
+}
+// Selectores generales
+*{
+	box-sizing: border-box;
+}
+
+body{
+	background: $_white;
+    font-family: 'Open Sans', sans-serif;
+    color: $_black;
+    padding-top: 64px 
+}
+
+// Links globales
+a{
+    text-decoration: none;
+
+    &:link, &:visited{
+        color: $_mainc;
+    }
+
+    &:hover{
+        color: darken($color: $_mainc, $amount: 15)
+    }
+}
+
+// Elementos headline
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+
+.serif{
+    font-family: 'PT Serif', serif;
+}
+.sans{
+    font-family: 'Open Sans', sans-serif;
+}
+
+// Logo
+h1.logo{
+    margin: 0px;
+    padding: 0px;
+    font-size: 64px;
+    line-height: 32px;
+    height: 32px;
+    display: block;
+    i.agora-logo{
+        user-select: none;
+        text-transform: lowercase;
+        font-family: 'Playfair Display', sans-serif;
+        font-style: normal; 
+        font-weight: bold;
+        line-height: 32px;
+        display: block;
+        background: url('../img/iso.color.svg') no-repeat;
+        padding-left: 16px;
+        background-size: 13px, 32px;
+        background-position: left center;
+        width: auto;
+        font-size: 28px;
+        color: $_black;
+    }
+}
+// Le añadimos una clase al navbar para ponerle los colores que queramos. 
+// Le añadimos una clase al navbar para ponerle los colores que queramos. 
+.navbar-agora{
+    background: $_white;
+    border-bottom: 1px solid $_lightgrey;
+
+    ul>li>a.nav-link{
+        border: 2px solid transparent;
+        text-align: center;
+        &.reg{
+            display: block;
+            background-color: $_white;
+            border-color: $_mainc;
+            border-width: 2px;
+            border-style: solid;
+            color: $_mainc;
+            padding: .5em 1.25em;
+            border-radius: .5em;
+            transition: background .25s;
+
+            &:hover{
+                background: $_mainc;
+                color: $_white;
+            }
+        }
+    }
+
+    img.navbar-pp{
+        width: 48px;
+        height: 48px;
+        border: 3px solid $_lightgrey;
+        border-radius: 100%;
+        margin-left: .5em;
+    }
+
+    h2{
+        font-size: 18px;
+        margin: 0px;
+        padding: 0px;
+        display: inline;
+        vertical-align: middle;
+    }
+    form{
+        display: inline;
+        vertical-align: middle;
+    }
+    .toolbar-btn{
+        margin: 0px 0px 0px .5em;
+        display: inline-block;
+        background: transparent;
+        color: $_mainc;
+        border: none;
+        border-radius: 100%;
+        padding: .5em .5em;
+        transition: background .25s;
+        padding: 0px;
+
+        i{
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            display: block;
+        }
+        outline: none;
+
+        &:hover, &:focus{
+            background: darken($color: white, $amount: 5)
+        }
+
+        &:active{
+            
+            background: darken($color: white, $amount: 15)
+        }
+    }
+
+    .navbar-toggler{
+        color: $_mainc;
+        position: relative;
+        outline: none;
+        width: 48px;
+        height: 48px;
+
+        // cambiamos el icono svg por elementos html
+        i.icon-bar{
+            background-color: $_mainc;
+            width: 24px;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -2px 0px 0px -12px;
+
+            &:nth-child(1){
+                margin-top: -8px;
+            }
+            &:nth-child(3){
+                margin-top: 4px;
+            }
+        }
+    }
+} 
+
+// Estilos globales para las secciones
+section{
+    padding: 0px 0px;
+}
+
+// Estilos especificos de cada seccion
+
+aside#autor{
+    padding: 3em 2em;
+}
+
+#article{
+    .full-view-article{
+        padding: 3em 0em;
+        text-align: left;
+        width: 100%;
+        
+        h2{
+            font-family: 'PT Serif', serif;
+            text-transform: capitalize;
+            font-weight: 600;
+            font-size: 2.5em;
+        }
+        h3{
+            font-family: 'PT Serif', serif;
+            font-size: 2em;
+        }
+    }
+}
+
+#login, #register{
+    padding: 128px 0px;
+    background: url('../img/login-background.jpg');
+    background-size: cover;
+    background-position: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    form{
+        width: auto;
+        max-width: 360px;
+        padding: 2em;
+        border-radius: 16px;
+        margin: 0px 16px;
+        background-color: $_white;
+        font-size: .9em;
+
+        span.error-span{
+            padding: 1em;
+            display: block;
+            background: red;
+            border-radius: .25em; 
+            font-size: .8em;
+            color: white;
+
+            a{
+                color: lightpink;
+            }
+        }
+
+        p.desc{
+            text-align: center;
+            font-size: .75em;
+
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+
+        label{
+            font-weight: 600;
+            font-size: .8em;
+        }
+
+        input[type="text"], input[type="password"]{
+            outline: none;
+            background: transparent;
+            width: 100%;
+            border: 1px solid $_mainc;
+            padding: .5em;
+            border-radius: 8px;
+            font-size: 1.1em;
+            margin: 0px 0px 16px;
+
+            &:focus{
+                border-color: lighten($color: $_mainc, $amount: 15)
+            }
+
+            &.error{
+                border-color: red;
+            }
+        }
+
+        input[type="submit"]{
+            color: darken($_goodgreen, 50);
+            display: block;
+            margin-top: 32px;
+            padding: 16px 32px;
+            width: 100%;
+            border-radius: 8px;
+            background: $_goodgreen;
+            font-size: 18px;
+            border: none;
+            outline: none;
+
+            &:hover{
+                background: lighten($_goodgreen, 5);
+            }
+            &:focus{
+                background: darken($_goodgreen, 5);
+            }
+        }
+    }
+}
+
+#profile-header{
+    margin-top: $_navbar_height;
+    padding: 1.618em;
+    background-color: $_mainc;
+    display: flex;
+
+    .pp{
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 100%;
+    }
+
+    h2{
+        color: white;
+    }
+}
+
+.profile-article.card {
+    margin: 1em;
+    width: auto;
+    padding: 1em;
+    .content{
+        display: inline-block;
+    }
+    h3{
+        display: inline-block;
+    }
+}
+
+#landing-header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 64px);
+    background: url('../img/header-background.png');
+    background-size: cover;
+    background-position: 65% 0%;
+    color: $_white;
+    text-align: left;
+
+    article{
+        max-width: 300px;
+        h2{
+            text-align: center;
+            font-weight: 300;
+            font-size: 24px;
+        }
+    }
+
+    &.not-fullscreen{
+        height: auto;
+        padding: 128px 0px 64px;
+    }
+}
+
+#faq-header{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    background: url('../img/header-background.png');
+    background-size: cover;
+    background-position: 65% 25%;
+    color: $_white;
+    text-align: left;
+    padding-top: 60px;
+
+    article{
+        h2{
+            font-weight: 300;
+            font-size: 24px;
+            
+            img{
+                display: block;
+                width: 128px;
+            }
+        }
+    }
+}
+
+#preguntas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    
+    article{
+        padding: 32px 1em;
+        h2{
+            color: $_mainc;
+        }
+    }
+}
+
+#features{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+
+    article{
+
+        h2{
+            color: $_mainc;
+        }
+        padding: 64px 32px;
+
+        p{
+            font-family: 'PT Serif', serif;
+        }
+    }
+}
+
+section.new-article-form{
+    padding: 2em;
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input[name="title"]{
+            display: block;
+            width: 100%;
+        }
+        
+        input[name="content"]{
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+// Aside de recrutamiento (join.php)
+aside#join{
+    background: url('../img/join-background.png');
+    color: $_white;
+    padding: 4em 1em;
+    margin: 0px;
+    text-align: center;
+
+    h3{
+        color: $_white;
+        font-size: 18px;
+    }
+
+    a{
+        display: inline-block;
+        font-size: 1.1em;
+        color: $_white;
+        border-radius: 8px;
+        padding: .5em 1em;
+        border: 3px solid $_white;
+    }
+
+    p{
+        margin: 0px;
+    }
+}
+
+// Footer (footer.php)
+footer{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 0px;
+    color: $_grey;
+
+    .footer-links{
+        display: inline-block;
+        font-size: .75em;
+        padding: 24px 0px 0px;
+        a{
+            color: $_grey;
+        }
+    }
+
+    img{
+        display: inline-block;
+        width: 64px;
+        vertical-align: middle;
+        margin: 0px 24px 0px 0px;
+    }
+    background: $_black;
+}
