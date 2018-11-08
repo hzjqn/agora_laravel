@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    @component('components.navbar')
+    @include('_.navbar')
     @yield('content')    
 </body>
 </html>
