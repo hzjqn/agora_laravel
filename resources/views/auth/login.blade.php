@@ -13,8 +13,8 @@
             <form class="solid-form" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="input-case">
-                    <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-                    <label for="email">{{ 'hzdes.95@gmail.com' }}</label>
+                    <input id="email" type="text" class="{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                    <label for="email">{{ 'Username or Email' }}</label>
             
                     @if ($errors->has('email'))
                         <span class="invalid-feedback">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="input-case">
-                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                    <input id="password" autocomplete="false" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                     <label for="password">{{ __('Password') }}</label>
                     
                     @if ($errors->has('password'))
