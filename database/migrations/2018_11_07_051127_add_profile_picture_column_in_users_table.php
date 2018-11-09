@@ -15,7 +15,7 @@ class AddProfilePictureColumnInUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('profile_picture');
+            $table->string('profile_picture')->nullable();
         });
     }
 

@@ -16,6 +16,11 @@ Route::group(['middleware'=>'auth'],function () {
     }
 );
 
+Route::get('/faq')->name('faq');
+Route::get('/privacy')->name('privacy');
+
 Auth::routes();
+Route::get('activate/{token}', 'Auth\RegisterController@activate')
+    ->name('activate');
 
 Route::get('/home', 'ViewController@index')->name('home');

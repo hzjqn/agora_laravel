@@ -1,0 +1,87 @@
+.navbar-agora
+    background: $_white
+    border-bottom: 1px solid $_lightgrey
+
+    ul>li>a.nav-link
+        border: 2px solid transparent
+        text-align: center
+        &.reg
+            display: block
+            background-color: $_white
+            border-color: $_mainc
+            border-width: 2px
+            border-style: solid
+            color: $_mainc
+            padding: .5em 1.25em
+            border-radius: .5em
+            transition: background .25s
+
+            &:hover
+                background: $_mainc
+                color: $_white
+
+    img.navbar-pp
+        width: 48px
+        height: 48px
+        border: 3px solid $_lightgrey
+        border-radius: 100%
+        margin-left: .5em
+    
+
+    h2
+        font-size: 18px
+        margin: 0px
+        padding: 0px
+        display: inline
+        vertical-align: middle
+    
+    form
+        display: inline
+        vertical-align: middle
+    
+    .toolbar-btn
+        margin: 0px 0px 0px .5em
+        display: inline-block
+        background: transparent
+        color: $_mainc
+        border: none
+        border-radius: 100%
+        padding: .5em .5em
+        transition: background .25s
+        padding: 0px
+        outline: none
+
+        i
+            display: block
+            padding: 15px
+            font-size: 18px
+            display: block
+
+        &:hover, &:focus
+            background: darken($color: white, $amount: 5)
+
+        &:active            
+            background: darken($color: white, $amount: 15)
+
+    .navbar-toggler
+        color: $_mainc
+        position: relative
+        outline: none
+        width: 48px
+        height: 48px
+
+        // cambiamos el icono svg por elementos html
+        i.icon-bar
+            background-color: $_mainc
+            width: 24px
+            height: 2px
+            position: absolute
+            top: 50%
+            left: 50%
+            margin: -2px 0px 0px -12px
+
+            &:nth-child(1)
+                margin-top: -8px
+            
+            &:nth-child(3)
+                margin-top: 4px

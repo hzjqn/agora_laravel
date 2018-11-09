@@ -1,0 +1,15 @@
+.grid
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;  
+ 
+  @for $i from 1 through 12 
+    .col-span-#{$i}
+    grid-column: span #{$i};
+ 
+  @for $i from 1 through 12 
+    &.col-gap-#{$i}
+      column-gap: $i+rem;
+
+  @for $i from 1 through 12 
+    &.row-gap-#{$i}
+      grid-row-gap: $i+rem;
