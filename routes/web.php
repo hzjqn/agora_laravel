@@ -18,6 +18,9 @@ Route::group(['middleware'=>'auth'],function () {
 
 Route::get('/faq')->name('faq');
 Route::get('/privacy')->name('privacy');
+Route::get('/javascript', function(){
+    return view('js');
+});
 
 Auth::routes();
 Route::get('activate/{token}', 'Auth\RegisterController@activate')
