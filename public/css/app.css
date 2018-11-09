@@ -10625,9 +10625,7 @@ h6 {
 
 .login-form form {
   border-radius: .5em;
-  padding: 2em;
   background-color: #fff;
-  margin: 2em 0em;
 }
 
 .login-form .footer {
@@ -10761,6 +10759,70 @@ h6 {
 
 .grid.row-gap-12 {
   grid-row-gap: 12rem;
+}
+
+form.solid-form {
+  display: block;
+  padding: 1em;
+  margin: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+form.solid-form .form-input {
+  margin: 0px;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+form.solid-form .form-input input[type="submit"],
+form.solid-form .form-input button {
+  width: 100%;
+}
+
+form.solid-form .form-input input[type="text"],
+form.solid-form .form-input input[type="text"] + label,
+form.solid-form .form-input input[type="password"],
+form.solid-form .form-input input[type="password"] + label {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 0px;
+  padding: 0px;
+  height: 32px;
+  margin: 0px;
+  line-height: 32px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+form.solid-form .form-input input[type="text"] + label,
+form.solid-form .form-input input[type="password"] + label {
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+  margin-top: -32px;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+form.solid-form .form-input input[type="text"]:focus,
+form.solid-form .form-input input[type="password"]:focus {
+  margin-top: .5em;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+form.solid-form .form-input input[type="text"]:focus + label,
+form.solid-form .form-input input[type="password"]:focus + label {
+  -webkit-transform: translate(0%, -32px);
+          transform: translate(0%, -32px);
 }
 
 .agora-svg-logo {
