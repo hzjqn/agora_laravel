@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Notifications\UserActivate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
-use App\UserActivate;
 
 
 class RegisterController extends Controller
@@ -24,7 +24,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+    
     use RegistersUsers;
 
     /**

@@ -41,7 +41,6 @@ class UserActivate extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->from(env('ADMIN_MAIL_ADDRESS'))
             ->subject('Activate Account!')
             ->greeting(sprintf('Hi, %s', $this->user->name))
             ->line('We just noticed that you created a new account. You will need to activate your account to sign in into this account.')

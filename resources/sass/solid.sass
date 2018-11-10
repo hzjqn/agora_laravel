@@ -3,7 +3,7 @@
 $_bg_color: #444
 $_light_bg_color: #eee
 $_input_padding_sides: 1.618/2
-$_input_total_height: 3.2rem
+$_input_total_height: 3.6rem
 $_input_font_size: 1rem
 
 
@@ -18,24 +18,19 @@ $_input_font_size: 1rem
         animation-fill-mode: forwards
     
 .input-case
-  position: relative
-  display: block
-  margin: 1em 0em
-  &:first-child, &:last-child
-    margin: 0em 0em
+    position: relative
+    display: block
+    margin: 1rem 0em 1rem
+    height: 100%
   
 input[type='text'], 
 input[type="password"]
 
-    &.is-invalid
-        background-color: lighten(red, 33%)
-    
     outline: none
     box-shadow: none
-    padding-top: 0rem
     position: relative
     box-sizing: border-box
-    border-radius: .25rem
+    border-radius: .15rem
     border: none
     z-index: 2    
     display: block
@@ -44,68 +39,119 @@ input[type="password"]
     margin: 0px
     font-weight: 400
     font-stretch: normal
+    transition: all .25s
+    background-color: lighten($_lightgrey, 4%);
     height: $_input_total_height
     font-size: $_input_font_size
-    transition: all .25s
-    padding: $_input_total_height/3 1rem 0em;
-    background-color: $_lightgrey;
+    padding: .5rem 0.5rem 0em;
+    
+    &.is-invalid
+        box-shadow: 0px 0px 0px 1px red
+        &+label
+            &:after
+                background-color: red
 
     &:focus
-        background-color: lighten($_mainc, 35%)
+        background-color: lighten($_mainc, 46%)
+        &+label
+            &:after
+                height: 3px
+                bottom: -1px
+                left: 0%
+                right: 0%
+                transition: all .3s
 
     &+label
         font-weight: 400
         box-sizing: border-box
-        margin-top: -$_input_total_height
+        margin-top: - $_input_total_height - $_input_total_height/6
         line-height: 1em
         position: relative
         display: block
         pointer-events: none
         z-index: 3
         font-stretch: normal
-        height: $_input_total_height
         transition: all .25s
-        overflow: hidden
-        font-size: $_input_font_size/1.5
-        transform: translate(0, -$_input_total_height/3)
-        padding: $_input_total_height/2 1rem
+        transform-origin: 0 0;
+        font-size: $_input_font_size *.7
+        height: $_input_total_height
+        padding: $_input_total_height/3.2 .5rem
+        text-overflow: ellipsis
+
+        &:after
+            content: ''
+            display: block
+            position: absolute
+            background: $_mainc
+            top: auto
+            width: auto
+            height: 1px
+            bottom: 0px
+            left: 50%
+            right: 50%
+            transition: all .3s
+            margin-left: .5rem
+            margin-right: .5rem
+            border-radius: 3em
 
     &:not(:focus),
     &[value]:not[value=""]:not(.empty):not(.not-empty)
         outline: none
         box-shadow: none
-        padding-top: 0rem
         &+label
-            padding-top: .5rem      
-            height: $_input_total_height
-            font-size: $_input_font_size
-            transform: translate(0, $_input_total_height/6) 
-    
+            font-size: 1rem
+            padding-top : $_input_total_height/2.8  + $_input_total_height/6;
+            
+            &:after
+                height: 1px
+                bottom: 0px
+                left: 0%
+                right: 0%
+    &:not(:focus).not-empty
+        &+label            
+            &:after
+                height: 1px
+                bottom: 0px
+                left: 0%
+                right: 0%
+
     &:not(:focus).empty
         outline: none
         box-shadow: none
-        padding-top: 0rem
         &+label
-            padding-top: .5rem
-            height: $_input_total_height
-            font-size: $_input_font_size
-            transform: translate(0, $_input_total_height/6) 
+            font-size: 1rem
+            padding-top : $_input_total_height/2.8  + $_input_total_height/6;
+            
+            &:after
+                height: 1px
+                bottom: 0px
+                left: 50%
+                right: 50%
 
 span.invalid-feedback
     display: block
 
+a.solid-form-btn,
 button.solid-form-btn,
 input[type="submit"].solid-form-btn
     margin: 1rem 0em
+    display: block
+    width: 100%
+    border: none
+    box-shadow: none
+
+    &:hover
+        border: none
+        box-shadow: 0px 1px 2px 0px $_shade
+
     &.forward
-        display: block
-        width: 100%
         background-color: $_mainc
+    &.sidequest
+        background-color: lighten($_mainc, 46%)
 
 .small-letter
-    display: block
+    display: inline-block
     margin: -1em 0em 0em
-    width: 100%
     font-size: .75rem
 
 

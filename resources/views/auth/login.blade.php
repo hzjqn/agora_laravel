@@ -38,20 +38,19 @@
                         <input class="form-check-input solid-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         
                         <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
+                            {{ __('Remember me') }}
                         </label>
                     </div>
                 </div>
 
                 <div class="form-input justify-content-center">
-                    <input type="submit" class="btn btn-primary solid-form-btn forward" value="{{ __('Login') }}">
-                    <a class="btn btn-link small-letter" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
+                    <input type="submit" class="btn btn-primary solid-form-btn forward" value="{{ __('Sign in') }}">
+                    <a class="btn solid-form-btn sidequest" href="{{ route('register') }}">{{ __('Sign up') }}</a>
+                    <a class="btn btn-link small-letter" href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
                 </div>
             </form>
             <div class="footer">
-                <a href=" {{ route('faq') }}">{{ __('Frequently Asked Questions') }}</a> | <a href="{{ route('privacy') }}"> {{ __('Privacy') }} </a>
+                <a href=" {{ route('faq') }}">{{ __('FAQ') }}</a> | <a href="{{ route('privacy') }}"> {{ __('Privacy') }} </a>
             </div>
         </div>
         <div class="login-carousel-wrapper col-md-6 col-lg-8 d-none d-md-block">
@@ -63,13 +62,28 @@
                 </ol>
                 <div class="carousel-inner login-carousel-inner">
                         <div class="carousel-item active login-carousel-item">
-                            a
+                            <article>
+                                <h2>Explorá.</h2>
+                                <p>
+                                    Navegá <strong>noticias</strong>, <strong>notas de opinión</strong>, <strong>blogs</strong> y mucho más. Indicá qué artículos te parecen <strong>útiles</strong> y cuanto <strong>respetas</strong> a una fuente.
+                                </p>
+                            </article>
                         </div>
                         <div class="carousel-item login-carousel-item">
-                            b
+                            <article>
+                                <h2>Expresa.</h2>
+                                <p>
+                                <strong>Escribí, edita y publica</strong> tus propias notas. <strong>Compartí</strong> tus inquietudes, problemas, desafíos u opiniones con el mundo. Y encontrá <strong>seguidores</strong> y/o <strong>patrocinadores</strong>.
+                                </p>
+                            </article>
                         </div>
                         <div class="carousel-item login-carousel-item">
-                            c
+                            <article>
+                                <h2>Se parte.</h2>
+                                <p>
+                                Armá <strong>colecciones</strong> y <strong>archiva</strong> tus notas preferidas, seguí a tus autores <strong>favoritos</strong> y recibí notificaciones cuando estos publican contenido!
+                                </p>
+                            </article>
                         </div>
                 </div>
             </div>

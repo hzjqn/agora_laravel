@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Estas credenciales no corresponden con nuestros registros.',
+    'failed' => 'Tu nombre de usuario y/o contraseña no se corresponden.',
     'throttle' => 'Demasiados atentos de inicio de sesión. Porfavor, volvé a probar en :seconds segundos.',
 
 ];
