@@ -29,6 +29,9 @@
     @if(View::hasSection('navbar'))
         @include('_.navbar')
     @endif
-    @yield('content')    
+    @yield('content')
+    
+    <!-- Scripts -->
+    <script src="{{ asset('js/solid.js') }}" defer></script>   
 </body>
 </html>

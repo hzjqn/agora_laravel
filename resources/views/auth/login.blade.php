@@ -10,10 +10,10 @@
                     <strong>Ágora</strong> es una <strong>red social</strong> donde cualquiera puede encontrar un canal para <strong>expresar</strong> sus opiniones. 
                 </h2>
             </article>
-            <form class="solid-form" method="POST" action="{{ route('login') }}">
+            <form class="solid-form {{ $errors->has('email') || $errors->has('password') ? 'error' : '' }}" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="input-case">
-                    <input id="email" type="text" class="{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                    <input id="email" type="text" class="{{ $errors->has('email') ? ' is-invalid' : '' || $errors->has('username') ? ' is-invalid' : ''  }} solid-input" name="email" value="{{ old('email') }}" required>
                     <label for="email">{{ 'Username or Email' }}</label>
             
                     @if ($errors->has('email'))
@@ -24,9 +24,8 @@
                 </div>
 
                 <div class="input-case">
-                    <input id="password" autocomplete="false" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                    <input id="password" autocomplete="false" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }} solid-input" name="password" required>
                     <label for="password">{{ __('Password') }}</label>
-                    
                     @if ($errors->has('password'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('password') }}</strong>
@@ -36,7 +35,7 @@
 
                 <div class="input-case">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <input class="form-check-input solid-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         
                         <label class="form-check-label" for="remember">
                             {{ __('Remember Me') }}
@@ -44,12 +43,9 @@
                     </div>
                 </div>
 
-                <div class="form-input mb-0 justify-content-center">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Login') }}
-                    </button>
-                    
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                <div class="form-input justify-content-center">
+                    <input type="submit" class="btn btn-primary solid-form-btn forward" value="{{ __('Login') }}">
+                    <a class="btn btn-link small-letter" href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
                     </a>
                 </div>
