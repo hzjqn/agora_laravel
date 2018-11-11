@@ -1,6 +1,68 @@
 .navbar-agora
+    top: 0px
+    left: 0px
+    width: 100%
+    position: fixed
     background: $_white
     border-bottom: 1px solid $_lightgrey
+    padding: .25em
+    flex-direction: column
+
+    ul.navbar-nav
+        justify-content: center
+        flex-direction: row
+
+        .nav-item
+            margin-right: .5em
+            margin-right: .5em
+            display: flex
+            flex-direction: row
+            height: 48px
+
+            a
+                display: inline-flex
+                width: 100%
+                align-self: center
+
+                i
+                    display: inline-block
+
+    
+    .container,
+    .container-fluid
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        
+        .navbar-header-container
+            flex: 1
+            flex-direction: row
+            display: flex
+            justify-content: center
+            align-items: center
+
+        .navbar-content-container
+            display: flex
+            flex-direction: column
+
+    @media screen and (min-width: 992px)
+        .container,
+        .container-fluid
+            flex-direction: row
+            .navbar-header-container
+
+            .navbar-content-container
+                flex-direction: row
+                justify-content: flex-end
+                align-items: flex-end
+
+            .brand
+                flex: 1
+
+    .agora-svg-logo.with-text
+        margin: 0px
+        padding: 0px
+
 
     ul>li>a.nav-link
         border: 2px solid transparent
@@ -21,11 +83,10 @@
                 color: $_white
 
     img.navbar-pp
-        width: 48px
-        height: 48px
+        width: 32px
+        height: 32px
         border: 3px solid $_lightgrey
         border-radius: 100%
-        margin-left: .5em
     
 
     h2
@@ -40,22 +101,35 @@
         vertical-align: middle
     
     .toolbar-btn
-        margin: 0px 0px 0px .5em
-        display: inline-block
+        height: 32px;
+        display: flex
+        justify-content: center
+        align-items: center
         background: transparent
         color: $_mainc
         border: none
-        border-radius: 100%
-        padding: .5em .5em
+        border-radius: 32px
         transition: background .25s
-        padding: 0px
         outline: none
+        text-transform: none
+        text-decoration: none
 
         i
-            display: block
-            padding: 15px
-            font-size: 18px
-            display: block
+            padding: .5em
+            font-size: 16px
+            display: flex
+            margin: 0px
+
+        &.iconless
+        
+        &.icon
+            padding: 8px 10px
+            i
+                padding: .5em .5em .5em 0em
+        
+        &.textless
+
+
 
         &:hover, &:focus
             background: darken($color: white, $amount: 5)
