@@ -54,8 +54,13 @@ Route::group(['prefix' => 'users'], function () {
 });
 
 Route::group(['prefix' => 'likes'], function () {
-    Route::post('/like/{id}', 'LikeController@like');
-    Route::post('/unilike/{id}', 'LikeController@unlike');
+    Route::post('/like', 'LikeController@like');
+    Route::post('/unilike', 'LikeController@unlike');
+});
+
+Route::group(['prefix' => 'follow'], function () {
+    Route::post('/follow', 'FollowController@follow')->name('follow');
+    Route::post('/unfollow', 'FollowController@unfollow');
 });
 
 Route::get('/account', 'AccountController@show')->name('account')->middleware('auth');

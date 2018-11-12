@@ -20,8 +20,8 @@ $_input_font_size: 1rem
 .input-case
     position: relative
     display: block
+    overflow: hidden
     margin: 1rem 0em 1rem
-    height: 100%
   
 input[type='text'], 
 input[type="password"]
@@ -59,14 +59,14 @@ input[type="password"]
         &+label
             &:after
                 height: 1px
-                bottom: -1px
+                bottom: 1px
                 left: 0%
                 right: 0%
                 transition: all .3s
             
             &:before
                 height: 3px
-                bottom: -1px
+                bottom: 0px
                 left: 0%
                 right: 0%
                 transition: all .3s
@@ -96,7 +96,7 @@ input[type="password"]
             top: auto
             width: auto
             height: 1px
-            bottom: 0px
+            bottom: 1px
             left: 50%
             right: 50%
             transition: all .3s
@@ -112,7 +112,7 @@ input[type="password"]
             top: auto
             width: auto
             height: 1px
-            bottom: 0px
+            bottom: 1px
             left: 50%
             right: 50%
             transition: all .3s
@@ -130,7 +130,7 @@ input[type="password"]
             
             &:after
                 height: 1px
-                bottom: 0px
+                bottom: 1px
                 left: 0%
                 right: 0%
 
@@ -144,7 +144,7 @@ input[type="password"]
         &+label            
             &:after
                 height: 1px
-                bottom: 0px
+                bottom: 1px
                 left: 0%
                 right: 0%
                                  
@@ -153,6 +153,34 @@ input[type="password"]
                 bottom: 0px
                 left: 50%
                 right: 50%
+
+    &.not-empty
+        &+label            
+            &:after
+                height: 1px
+                bottom: 1px
+                left: 0%
+                right: 0%
+                                 
+            &:before
+                height: 3px
+                bottom: 0px
+                left: 50%
+                right: 50%
+
+    &:focus
+        &+label            
+            &:after
+                height: 1px
+                bottom: 1px
+                left: 0%
+                right: 0%
+                                 
+            &:before
+                height: 3px
+                bottom: 0px
+                left: 0%
+                right: 0%
 
     &:not(:focus).empty
         outline: none
@@ -163,7 +191,7 @@ input[type="password"]
             
             &:after
                 height: 1px
-                bottom: 0px
+                bottom: 1px
                 left: 50%
                 right: 50%
                         
