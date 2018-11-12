@@ -51,10 +51,20 @@ input[type="password"]
             &:after
                 background-color: red
 
+            &:before
+                background-color: red
+
     &:focus
         background-color: lighten($_mainc, 46%)
         &+label
             &:after
+                height: 1px
+                bottom: -1px
+                left: 0%
+                right: 0%
+                transition: all .3s
+            
+            &:before
                 height: 3px
                 bottom: -1px
                 left: 0%
@@ -93,6 +103,22 @@ input[type="password"]
             margin-left: .5rem
             margin-right: .5rem
             border-radius: 3em
+        
+        &:before
+            content: ''
+            display: block
+            position: absolute
+            background: $_mainc
+            top: auto
+            width: auto
+            height: 1px
+            bottom: 0px
+            left: 50%
+            right: 50%
+            transition: all .3s
+            margin-left: .5rem
+            margin-right: .5rem
+            border-radius: 3em
 
     &:not(:focus),
     &[value]:not[value=""]:not(.empty):not(.not-empty)
@@ -107,6 +133,13 @@ input[type="password"]
                 bottom: 0px
                 left: 0%
                 right: 0%
+
+            &:before
+                height: 3px
+                bottom: 0px
+                left: 0%
+                right: 0%
+
     &:not(:focus).not-empty
         &+label            
             &:after
@@ -114,6 +147,12 @@ input[type="password"]
                 bottom: 0px
                 left: 0%
                 right: 0%
+                                 
+            &:before
+                height: 3px
+                bottom: 0px
+                left: 50%
+                right: 50%
 
     &:not(:focus).empty
         outline: none
@@ -124,6 +163,12 @@ input[type="password"]
             
             &:after
                 height: 1px
+                bottom: 0px
+                left: 50%
+                right: 50%
+                        
+            &:before
+                height: 3px
                 bottom: 0px
                 left: 50%
                 right: 50%
@@ -142,14 +187,18 @@ input[type="submit"].solid-form-btn
 
     &:hover
         border: none
-        box-shadow: 0px 1px 2px 0px $_shade
 
     &.forward
         background-color: $_mainc
+        &:hover
+            background-color: lighten($_mainc, 5%)
     &.sidequest
-        background-color: lighten($_mainc, 46%)
+        background-color: lighten($_mainc, 32%)
+        &:hover
+            background-color: darken(lighten($_mainc, 32%), 5%)
 
 .small-letter
+    width: 100%
     display: inline-block
     margin: -1em 0em 0em
     font-size: .75rem

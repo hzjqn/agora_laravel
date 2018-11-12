@@ -25,7 +25,7 @@ Route::get('/javascript', function(){
 
 Route::group(['prefix' => 'articles'], function () {
     Route::get('/', 'ArticleController@index')->name('articles');
-    Route::get('/new', 'ArticleController@create');
+    Route::get('/new', 'ArticleController@create')->name('new_article');
     Route::post('/new', 'ArticleController@store');
     Route::get('/{id}', 'ArticleController@show');
     Route::get('/{id}/edit', 'ArticleController@edit');
@@ -60,6 +60,8 @@ Route::group(['prefix' => 'likes'], function () {
 
 Route::get('/account', 'AccountController@show')->name('account')->middleware('auth');
 
+
+// Solucionar el problema con mail -> sender 
 Auth::routes();
 Route::get('activate/{token}', 'Auth\RegisterController@activate')
     ->name('activate');

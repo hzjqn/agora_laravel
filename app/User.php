@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Comment;
+use App\Like;
+use App\Follow;
 
 class User extends Authenticatable
 {
@@ -61,5 +64,24 @@ class User extends Authenticatable
                 return false;
                 break;
         }
+    }
+
+    public function articles() {
+        return $this->hasMany(Article::class, 'user_id', 'id');
+    }
+
+    /**
+     * Returns all the users that the user follows
+     */
+    public function following(){
+        return $this->hasMany(Follow::class);
+    }
+
+    public function followed(){
+        return $this->belongsToMany(Follow::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 }

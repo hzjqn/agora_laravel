@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'token' => str_random(40) . time(),
         ]);
 
-        $user->notify(new UserActivate($user));
+        $user->update(['token' => null, 'active' => User::ACTIVE]);
 
         return $user;
     }

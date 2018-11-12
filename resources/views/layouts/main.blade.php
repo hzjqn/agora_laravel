@@ -25,11 +25,14 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="{{ View::hasSection('navbar') ? 'with-navbar' : null }}">
+<body class="{{ View::hasSection('navbar') ? 'with-navbar' : null }} {{ View::hasSection('botbar') ? 'with-bottombar' : null }}">
     @if(View::hasSection('navbar'))
         @include('_.navbar')
     @endif
     @yield('content')
+    @if(View::hasSection('botbar'))
+        @include('_.bottombar')
+    @endif
     
     <!-- Scripts -->
     <script src="{{ asset('js/solid.js') }}" defer></script>   

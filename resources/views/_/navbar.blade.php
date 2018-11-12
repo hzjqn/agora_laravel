@@ -1,15 +1,8 @@
 <nav class="navbar-expand-lg navbar-agora">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header-container">            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="icon-bar"></i>
-                <i class="icon-bar"></i>
-                <i class="icon-bar"></i>
-            </button>
-
-            <div class="navbar-brand flex-grow-1"><a href="./"><h1 class="agora-svg-logo with-text"><i class="agora-logo">ágora</i></h1></a></div>
-            
-            <div class="static-navbar-elements">
+        <div class="navbar-brand flex-grow-1"><a href=" {{ route('home') }} "><h1 class="agora-svg-logo with-text"><i class="agora-logo">ágora</i></h1></a></div>
+            <div class="static-navbar-elements d-none d-sm-flex">
                 <ul class="navbar-nav mr-0">
                     @guest
                     <li class="nav-item">
@@ -22,7 +15,7 @@
                     </li>
                     @else
                     <li class="nav-item m-x-md-1">
-                        <a class="toolbar-btn icon" href=" {{ route('articles') }}/new"><i class="fas fa-pencil-alt"></i>{{ __('New Article') }}</i></a>
+                        <a class="toolbar-btn icon" href=" {{ route('new_article') }}"><i class="fas fa-pencil-alt"></i>{{ __('New Article') }}</i></a>
                     </li>
                     <li class="nav-item dropdown m-x-md-1">
                         <a id="navbarDropdown" class="toolbar-btn textless" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -47,6 +40,11 @@
                     @endguest
                 </ul>
             </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </button>
         </div>
         <div class="navbar-content-container">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

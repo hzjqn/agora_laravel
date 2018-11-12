@@ -18,7 +18,7 @@ $_grey: #aaa
 $_darkgrey: #123
 $_white: #fff
 $_black: #323232
-$_mainc: #0098ff
+$_mainc: #6F6CDC
 $_goodgreen: #95ee7a
 
 // Shading
@@ -46,7 +46,10 @@ html
     background-color: $_white
 
 body.with-navbar
-    padding-top: $_navbar_height
+    padding-top: $_navbar_height 
+
+body.with-bottombar
+    padding-bot: 64px;
 
 // Links globales
 a
@@ -74,6 +77,7 @@ h6
 // Objects – class-based selectors which define undecorated design patterns, for example media object known from OOCSS
 
 @import 'partials/components/navbar'
+@import 'partials/components/bottombar'
 @import 'partials/login'
 @import 'grid'
 @import 'solid'

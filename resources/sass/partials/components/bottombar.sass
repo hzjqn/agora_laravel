@@ -1,0 +1,36 @@
+.bottombar
+    display: flex
+    position: fixed
+    background: $_white
+    bottom: 0px
+    left: 0px
+    height: 64px
+    width: 100%
+    border-top: 1px solid $_lightgrey 
+    padding: 4px
+
+    ul
+        width: 100%
+        padding: 0px 8px
+        margin: 0px
+        list-style: none
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        align-items: center
+        justify-content: space-around
+
+    .action
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        width: 56px
+        height: 56px
+        font-size: 24px
+        &.primary
+            order: 4
+            border-radius: 100%
+            display: inline-flex
+            background-color: $_mainc
+            a   
+                color: $_white

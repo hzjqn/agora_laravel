@@ -36,6 +36,13 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
+        $title = $request['title'];
+        $content = $request['content'];
+        $article = Article::create();
+        $article->content = $request->content;
+        $article->title = $request->title;
+        $article->user_id = $request->user_id;
+        $article->save();
     }
 
     /**
@@ -44,9 +51,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
-    {
-        //
+    public function show($id)
+    {   
+        $article = Article::find($id);
+        return view('article', ['article' => $article]);
     }
 
     /**
