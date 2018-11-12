@@ -60,46 +60,37 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 46:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
 
-/***/ 47:
+/***/ 49:
 /***/ (function(module, exports) {
 
 window.addEventListener('DOMContentLoaded', function () {
-    var inputs = document.querySelectorAll('input.solid-input');
-
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener('input', function () {
-            inputValueChange(this);
-        });
-        inputInit(inputs[i]);
-    }
-
-    function inputValueChange(solidInput) {
-        if (solidInput.value.length) {
-            solidInput.classList.remove('empty');
-            solidInput.classList.add('not-empty');
-        } else {
-            solidInput.classList.add('empty');
-            solidInput.classList.remove('not-empty');
+    var parragraphs = document.querySelectorAll('p');
+    var longestP = document.createElement('p');
+    for (var i = 0; i < parragraphs.length; i++) {
+        if (parragraphs[i].innerText.length > longestP.innerText.length) {
+            longestP = parragraphs[i];
         }
     }
 
-    function inputInit(Input) {
-        console.log(Input);
-        inputValueChange(Input);
-    }
+    console.log("ECMA se repite " + document.body.innerHTML.match(/ECMA/g).length + ' veces');
+
+    longestP.classList.add('longest');
+
+    var bodyText = document.body.innerHTML.replace('ActionScript', 'PORQUERIASCRIPT');
+    document.body.innerHTML = bodyText;
 });
 
 /***/ })

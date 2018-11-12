@@ -20,7 +20,7 @@ Route::group(['middleware'=>'auth'],function () {
 Route::get('/faq')->name('faq');
 Route::get('/privacy')->name('privacy');
 Route::get('/javascript', function(){
-    return view('js');
+    return view('js/string');
 });
 
 Route::group(['prefix' => 'articles'], function () {
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'follow'], function () {
 Route::get('/account', 'AccountController@show')->name('account')->middleware('auth');
 
 
-// Solucionar el problema con mail -> sender 
+// Solucionar el problema con mail -> sender
 Auth::routes();
 Route::get('activate/{token}', 'Auth\RegisterController@activate')
     ->name('activate');

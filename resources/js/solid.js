@@ -1,14 +1,14 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
     const inputs = document.querySelectorAll('input.solid-input');
 
-    
+
 
     for(let i = 0; i < inputs.length; i++){
         inputs[i].addEventListener('input', function(){ inputValueChange(this) });
         inputInit(inputs[i]);
     }
 
-    function inputValueChange(solidInput){ 
+    function inputValueChange(solidInput){
         if(solidInput.value.length){
             solidInput.classList.remove('empty');
             solidInput.classList.add('not-empty');
@@ -19,7 +19,7 @@ window.onload = () => {
     }
 
     function inputInit(Input){
-        console.log(Input); 
+        console.log(Input);
         inputValueChange(Input);
     }
-}
+});

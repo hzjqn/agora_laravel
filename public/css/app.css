@@ -11027,7 +11027,7 @@ h6 {
 .input-case {
   position: relative;
   display: block;
-  overflow: hidden;
+  overflow: visible;
   margin: 1rem 0em 1rem;
 }
 
@@ -11388,7 +11388,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
+  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -11431,7 +11431,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
+  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -11590,5 +11590,39 @@ aside#author h3 {
     position: fixed;
     width: 280px;
   }
+}
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: 32px;
+  padding: .25em 1em;
+}
+
+.btn.follow-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .25em 1em;
+  background: #0088ff;
+  margin: .5em 0em;
+}
+
+.btn.navbar-objective {
+  color: #fff;
+  background: #0088ff;
+}
+
+.btn.navbar-sidequest {
+  background: #cce7ff;
+}
+
+.btn.objective {
+  color: #fff;
+  background: #0088ff;
+}
+
+.btn.sidequest {
+  background: #cce7ff;
 }
 

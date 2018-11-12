@@ -7,7 +7,8 @@
             {{ __('Follow') }}
         </button>
     </form>
-@else    
-    <a href="{{ route('login') }}" class="link-btn"> {{ __('Sign in to follow this user') }}</a>
-    or <a href="{{ route('register') }}" class="link-btn"> {{ __('Sign up') }}</a>
+@else
+<span class="d-block mb-2 mt-5">{{ __('To follow this user') }}</span>
+    <a href="{{ route('login') }}" class="btn objective"> {{ __('Sign in') }}</a>
+    or <a href="{{ route('register') }}" class="btn sidequest"> {{ __('Sign up') }}</a>
 @endauth

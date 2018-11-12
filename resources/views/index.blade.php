@@ -3,5 +3,10 @@
 @section('navbar', '')
 
 @section('content')
-    index
+    @forelse ($last_actions as $action)
+        @component('components.card', ['action' => $action])
+        @endcomponent
+    @empty
+
+    @endforelse
 @endsection
