@@ -1,11 +1,10 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
     const inputs = document.querySelectorAll('input.solid-input');
 
 
 
     for(let i = 0; i < inputs.length; i++){
         inputs[i].addEventListener('input', function(){ inputValueChange(this) });
-        inputInit(inputs[i]);
     }
 
     function inputValueChange(solidInput){
@@ -22,4 +21,4 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log(Input);
         inputValueChange(Input);
     }
-});
+}

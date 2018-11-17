@@ -11079,6 +11079,7 @@ input[type="password"]:focus {
 
 input[type='text']:focus + label:after,
 input[type="password"]:focus + label:after {
+  width: auto;
   height: 1px;
   bottom: 1px;
   left: 0%;
@@ -11089,6 +11090,7 @@ input[type="password"]:focus + label:after {
 
 input[type='text']:focus + label:before,
 input[type="password"]:focus + label:before {
+  width: auto;
   height: 3px;
   bottom: 0px;
   left: 0%;
@@ -11146,7 +11148,7 @@ input[type="password"] + label:before {
   background: #0088ff;
   top: auto;
   width: auto;
-  height: 1px;
+  height: 3px;
   bottom: 1px;
   left: 50%;
   right: 50%;
@@ -11259,8 +11261,8 @@ input[type='text']:not(:focus).empty + label:after,
 input[type="password"]:not(:focus).empty + label:after {
   height: 1px;
   bottom: 1px;
-  left: 50%;
-  right: 50%;
+  left: 0%;
+  right: 0%;
 }
 
 input[type='text']:not(:focus).empty + label:before,
@@ -11388,7 +11390,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
+  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -11431,7 +11433,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
+  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;

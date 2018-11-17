@@ -76,14 +76,13 @@ module.exports = __webpack_require__(47);
 /***/ 47:
 /***/ (function(module, exports) {
 
-window.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
     var inputs = document.querySelectorAll('input.solid-input');
 
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener('input', function () {
             inputValueChange(this);
         });
-        inputInit(inputs[i]);
     }
 
     function inputValueChange(solidInput) {
@@ -100,7 +99,7 @@ window.addEventListener('DOMContentLoaded', function () {
         console.log(Input);
         inputValueChange(Input);
     }
-});
+};
 
 /***/ })
 

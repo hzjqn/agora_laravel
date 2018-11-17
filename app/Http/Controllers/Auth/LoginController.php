@@ -39,8 +39,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-        // App\Http\Controllers\Auth\LoginController.php
-
+    
     /**
      * Get the needed authorization credentials from the request.
      *
@@ -54,7 +53,6 @@ class LoginController extends Controller
         return [
             $field => $request->get($this->username()),
             'password' => $request->get('password'),
-            'active' => User::ACTIVE,
         ];
     }
 
@@ -81,10 +79,10 @@ class LoginController extends Controller
     {
         $field = $this->field($request);
 
-        $messages = ["{$this->username()}.exists" => __('The account you are trying to login is not activated or it has been disabled.')];
+        $messages = ["{$this->username()}.exists" => 'The account you are trying to login is not registered or it has been disabled.'];
 
         $this->validate($request, [
-            $this->username() => "required|exists:users,{$field},active," . User::ACTIVE,
+            $this->username() => "required|exists:users,{$field}",
             'password' => 'required',
         ], $messages);
     }
