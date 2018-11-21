@@ -76,69 +76,18 @@ module.exports = __webpack_require__(45);
 /***/ 45:
 /***/ (function(module, exports) {
 
-window.onload = function () {
+var _this = this;
 
-    var cantidadTareasAAgregar = 0;
-    var appTitle = document.querySelector('h1');
-    var toolTips = document.querySelector('#tooltips');
-    var taskPendingCounter = document.createElement('h2');
-    taskPendingCounter.classList.add('tasks-done-counter');
-    toolTips.prepend(taskPendingCounter);
-    var tasksDoneCounter = document.createElement('h2');
-    tasksDoneCounter.classList.add('tasks-done-counter');
-    toolTips.prepend(tasksDoneCounter);
-    console.log(tasksDoneCounter);
-    var confirmed = void 0;
-    var tareas = [];
-    var tareasRealizadas = [];
-    var taskUl = document.querySelector('#task-list');
+window.addEventListener('DOMContentLoaded', function (e) {
 
-    while (!confirmed) {
-        do {
-            cantidadTareasAAgregar = prompt('Inidque la cantidad de tareas que desea programar.');
-            if (isNaN(parseInt(cantidadTareasAAgregar)) || cantidadTareasAAgregar <= 0) {
-                alert('La cantidad de tareas debe ser un numero entero mayor a 0.');
-            }
-        } while (isNaN(parseInt(cantidadTareasAAgregar)) || cantidadTareasAAgregar <= 0);
-
-        confirmed = confirm('Desea programar ' + cantidadTareasAAgregar + ' tarea(s)?');
-    }
-
-    for (var i = 0; i < cantidadTareasAAgregar; i++) {
-        var nuevaTarea = { "titulo": "",
-            "contenido": ""
-        };
-        do {
-            console.log('do');
-            var titulo = prompt('Titule su tarea N° ' + (i + 1));
-            nuevaTarea.titulo = titulo;
-            tareas.push(nuevaTarea);
-        } while (titulo == '' || titulo == null);
-    }
-
-    for (var _i = 0; _i < tareas.length; _i++) {
-        console.log('do2');
-        var newLi = document.createElement('li');
-        var newCloseBtn = document.createElement('span');
-        newLi.classList.add('task');
-        newLi.innerHTML = '<h3>' + tareas[_i].titulo + '</h3>';
-        newCloseBtn.classList.add('x-button');
-        newCloseBtn.innerHTML = 'x';
-        newLi.append(newCloseBtn);
-        console.log(newLi, taskUl, newCloseBtn);
-        taskUl.append(newLi);
-        console.log(newLi, taskUl);
-        console.log(newCloseBtn);
-
-        newCloseBtn.addEventListener('click', function () {
-            console.log(this);
-            this.parentElement.parentElement.removeChild(this.parentElement);
-        });
-    }
-
-    tasksDoneCounter.innerHTML = 'Tareas realizadas ' + tareas.length;
-    tasksDoneCounter.innerHTML = 'Tareas realizadas ' + tareasRealizadas.length;
-};
+    console.log(_this);
+    // Navbar article lenght/progress indicator
+    var articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
+    articleProgressIndicator.addEventListener('scroll', function () {
+        _this.boderColor = '#333';
+        console.log(_this);
+    });
+});
 
 /***/ })
 

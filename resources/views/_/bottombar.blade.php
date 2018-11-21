@@ -3,14 +3,17 @@
         <li class="action primary">
             <a href=" {{ route('new_article') }} "><i class="fas fa-pencil-alt"></i></a>
         </li>
-        <li class="action">
+        <li class="action pre">
+            <a href=" {{ route('new_article') }} "><i class="fas fa-home"></i></a>
+        </li>
+        <li class="action pre">
+            <a href=" {{ route('new_article') }} "><i class="fas fa-heart"></i></a>
+        </li>
+        <li class="action post">
+            <a href=" {{ route('new_article') }} "><i class="fas fa-envelope"></i></a>
+        </li>
+        <li class="action post">
                 <a href=" {{ route('new_article') }} "><i class="fas fa-user"></i></a>
-        </li>
-        <li class="action">
-                <a href=" {{ route('new_article') }} "><i class="fas fa-heart"></i></a>
-        </li>
-        <li class="action">
-                <a href=" {{ route('new_article') }} "><i class="fas fa-envelope"></i></a>
         </li>
     </ul>
 </nav>

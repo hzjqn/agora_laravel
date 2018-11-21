@@ -2,247 +2,145 @@
 
 $_bg_color: #444
 $_light_bg_color: #eee
-$_input_padding_sides: 1.618/2
-$_input_total_height: 3.6rem
-$_input_font_size: 1rem
+
+$_input_font_size: 1em
+$_input_v_padding: .25em
+$_input_v_margin: .25em
+$_input_h_padding: 0em
+$_input_h_margin: 0em
+$_input_total_height: $_input_font_size + $_input_v_padding*2 + $_input_v_margin*2
 
 
 .solid-form
-    width: 100%
-    position: relative
-    padding: 0em 1em
-
-    &.error
-        animation-name: solid-form-error-form
-        animation-duration: .25s
-        animation-fill-mode: forwards
-
-.input-case
-    position: relative
-    display: block
-    overflow: visible
-    margin: 1rem 0em 1rem
-
-input[type='text'],
-input[type="password"]
-
-    outline: none
-    box-shadow: none
-    position: relative
-    box-sizing: border-box
-    border-radius: .15rem
-    border: none
-    z-index: 2
-    display: block
-    width: 100%
-    line-height: 1em
-    margin: 0px
-    font-weight: 400
-    font-stretch: normal
-    transition: all .25s
-    background-color: lighten($_lightgrey, 4%);
-    height: $_input_total_height
-    font-size: $_input_font_size
-    padding: .5rem 0.5rem 0em;
-
-    &.is-invalid
-        box-shadow: 0px 0px 0px 1px red
-        &+label
-            &:after
-                background-color: red
-
-            &:before
-                background-color: red
-
-    &:focus
-        background-color: lighten($_mainc, 46%)
-        &+label
-            &:after
-                width: auto
-                height: 1px
-                bottom: 1px
-                left: 0%
-                right: 0%
-                transition: all .3s
-
-            &:before
-                width: auto
-                height: 3px
-                bottom: 0px
-                left: 0%
-                right: 0%
-                transition: all .3s
-
-    &+label
-        font-weight: 400
-        box-sizing: border-box
-        margin-top: - $_input_total_height - $_input_total_height/6
-        line-height: 1em
+    .input-case.title
+        $_input_total_height: $_input_font_size + $_input_v_padding*2 + $_input_v_margin*2
+        $_input_font_size: $article_h2_fontsize
+        $_input_height: 1.5em
         position: relative
-        display: block
-        pointer-events: none
-        z-index: 3
-        font-stretch: normal
-        transition: all .25s
-        transform-origin: 0 0;
-        font-size: $_input_font_size *.7
-        height: $_input_total_height
-        padding: $_input_total_height/3.2 .5rem
-        text-overflow: ellipsis
-
+        padding: 2em 0em 1em 0em
+        
         &:after
-            content: ''
-            display: block
             position: absolute
-            background: $_mainc
-            top: auto
-            width: auto
+            display: block
+            top: $_input_total_height + 3em + .5em
+            content: ''
+            width: 100%
+            background: $_black
             height: 1px
-            bottom: 1px
-            left: 50%
-            right: 50%
-            transition: all .3s
-            margin-left: .5rem
-            margin-right: .5rem
-            border-radius: 3em
-
-        &:before
-            content: ''
-            display: block
+    
+        label
             position: absolute
-            background: $_mainc
-            top: auto
-            width: auto
-            height: 3px
-            bottom: 1px
-            left: 50%
-            right: 50%
-            transition: all .3s
-            margin-left: .5rem
-            margin-right: .5rem
-            border-radius: 3em
+            pointer-events: none
+            transition: .25s
 
-    &:not(:focus),
-    &[value]:not[value=""]:not(.empty):not(.not-empty)
-        outline: none
-        box-shadow: none
+        input.solid-input
+            padding: 0px
+            &, &+label
+                $_input_font_size: $article_h2_fontsize
+                $_input_height: 1.5em
+
+                padding: $_input_v_padding $_input_h_padding
+                height: $_input_height
+                line-height: 1em
+                font-size: $_input_font_size
+                margin: $_input_v_margin 0px
+                border: none
+                outline: none
+                width: 100%
+                
+        input.solid-title-input
+            font-family: 'PT Serif', serif
+            text-transform: capitalize
+            font-weight: 600
+            &, &+label
+                $_input_font_size: $article_h2_fontsize
+                $_input_height: 1.5em
+                padding: $_input_v_padding $_input_h_padding
+                height: $_input_height
+                line-height: 1em
+                font-size: $_input_font_size
+                margin: $_input_v_margin 0px
+                border: none
+                outline: none
+                width: 100%
+
+            &+label
+                transform-origin: 0px 0px
+                transform: translate(0%, -$_input_total_height)
+                margin-bottom: -$_input_total_height
+
+    .input-case.empty
+        input.solid-title-input:focus
+        $_input_font_size: $article_h2_fontsize
+        $_input_height: 1.5em
         &+label
-            font-size: 1rem
-            padding-top : $_input_total_height/2.8  + $_input_total_height/6;
+            transform: translate(0%, - ($_input_total_height + $_input_height*0.75)) scale(0.75)
+            margin-bottom: -$_input_total_height
+    
+        input.solid-title-input:focus
+            $_input_font_size: $article_h2_fontsize
+            $_input_height: 1.5em
+            &+label
+                transform: translate(0%, - ($_input_total_height + $_input_height*0.75)) scale(0.75)
+                margin-bottom: -$_input_total_height
 
-            &:after
-                height: 1px
-                bottom: 1px
-                left: 0%
-                right: 0%
+    .input-case.not-empty
+        $_input_font_size: $article_h2_fontsize
+        $_input_height: 1.5em
+        input.solid-title-input
+            &+label
+                transform: translate(0%, - ($_input_total_height + $_input_height*0.75)) scale(0.75)
+                margin-bottom: -$_input_total_height
 
-            &:before
-                height: 3px
-                bottom: 0px
-                left: 0%
-                right: 0%
 
-    &:not(:focus).not-empty
-        &+label
-            &:after
-                height: 1px
-                bottom: 1px
-                left: 0%
-                right: 0%
 
-            &:before
-                height: 3px
-                bottom: 0px
-                left: 50%
-                right: 50%
+    span.invalid-feedback
+        display: block
 
-    &.not-empty
-        &+label
-            &:after
-                height: 1px
-                bottom: 1px
-                left: 0%
-                right: 0%
+    span.length-indicator
+        font-size: .9em
+        line-height: .9em
+        .counter
+            font-style: normal
+    
 
-            &:before
-                height: 3px
-                bottom: 0px
-                left: 50%
-                right: 50%
-
-    &:focus
-        &+label
-            &:after
-                height: 1px
-                bottom: 1px
-                left: 0%
-                right: 0%
-
-            &:before
-                height: 3px
-                bottom: 0px
-                left: 0%
-                right: 0%
-
-    &:not(:focus).empty
-        outline: none
-        box-shadow: none
-        &+label
-            font-size: 1rem
-            padding-top : $_input_total_height/2.8  + $_input_total_height/6;
-
-            &:after
-                height: 1px
-                bottom: 1px
-                left: 0%
-                right: 0%
-
-            &:before
-                height: 3px
-                bottom: 0px
-                left: 50%
-                right: 50%
-
-span.invalid-feedback
-    display: block
-
-a.solid-form-btn,
-button.solid-form-btn,
-input[type="submit"].solid-form-btn
-    margin: 1rem 0em
-    display: block
-    width: 100%
-    border: none
-    box-shadow: none
-
-    &:hover
+    a.solid-form-btn,
+    button.solid-form-btn,
+    input[type="submit"].solid-form-btn
+        margin: 1rem 0em
+        display: block
+        width: 100%
         border: none
+        box-shadow: none
 
-    &.forward
-        background-color: $_mainc
         &:hover
-            background-color: lighten($_mainc, 5%)
-    &.sidequest
-        background-color: lighten($_mainc, 32%)
-        &:hover
-            background-color: darken(lighten($_mainc, 32%), 5%)
+            border: none
 
-.small-letter
-    width: 100%
-    display: inline-block
-    margin: -1em 0em 0em
-    font-size: .75rem
+        &.forward
+            background-color: $_mainc
+            &:hover
+                background-color: lighten($_mainc, 5%)
+        &.sidequest
+            background-color: lighten($_mainc, 32%)
+            &:hover
+                background-color: darken(lighten($_mainc, 32%), 5%)
+
+    .small-letter
+        width: 100%
+        display: inline-block
+        margin: -1em 0em 0em
+        font-size: .75rem
 
 
-@keyframes solid-form-error-form
-    0, 100%
-        transform: rotate(0deg)
+    @keyframes solid-form-error-form
+        0, 100%
+            transform: rotate(0deg)
 
-    35%
-        transform: rotate(2deg)
+        35%
+            transform: rotate(2deg)
 
-    67%
-        transform: rotate(-2deg)
+        67%
+            transform: rotate(-2deg)
 
 
 

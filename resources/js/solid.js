@@ -1,19 +1,29 @@
-window.onload = () => {
-    const inputs = document.querySelectorAll('input.solid-input');
+window.addEventListener('DOMContentLoaded', function(){
+    const inputs = document.querySelectorAll('input.solid-input, input.solid-title-input');
 
 
 
     for(let i = 0; i < inputs.length; i++){
-        inputs[i].addEventListener('input', function(){ inputValueChange(this) });
+        inputValueChange(inputs[i], inputs[i].parentElement.querySelector('.length-indicator .counter'));
+
+        inputs[i].addEventListener('input', function(){     inputValueChange(this, this.parentElement.querySelector('.length-indicator .counter'))
+        });
     }
 
-    function inputValueChange(solidInput){
+    function inputValueChange(solidInput, maxLenghtIndicator = null){
         if(solidInput.value.length){
-            solidInput.classList.remove('empty');
-            solidInput.classList.add('not-empty');
+            solidInput.parentElement.classList.remove('empty');
+            solidInput.parentElement.classList.add('not-empty');
         } else{
-            solidInput.classList.add('empty');
-            solidInput.classList.remove('not-empty');
+            solidInput.parentElement.classList.add('empty');
+            solidInput.parentElement.classList.remove('not-empty');
+        }
+        if(maxLenghtIndicator){
+            let currentLength = solidInput.value.length;
+            let maxLength = solidInput.dataset.maxChars;
+            let lengthIndicator = maxLenghtIndicator;
+
+            lengthIndicator.innerHTML = currentLength+"/"+maxLength;
         }
     }
 
@@ -21,4 +31,4 @@ window.onload = () => {
         console.log(Input);
         inputValueChange(Input);
     }
-}
+});

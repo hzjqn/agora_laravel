@@ -60,56 +60,36 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 46:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
 
-/***/ 47:
+/***/ 49:
 /***/ (function(module, exports) {
 
-window.addEventListener('DOMContentLoaded', function () {
-    var inputs = document.querySelectorAll('input.solid-input, input.solid-title-input');
 
-    for (var i = 0; i < inputs.length; i++) {
-        inputValueChange(inputs[i], inputs[i].parentElement.querySelector('.length-indicator .counter'));
-
-        inputs[i].addEventListener('input', function () {
-            inputValueChange(this, this.parentElement.querySelector('.length-indicator .counter'));
-        });
-    }
-
-    function inputValueChange(solidInput) {
-        var maxLenghtIndicator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-        if (solidInput.value.length) {
-            solidInput.parentElement.classList.remove('empty');
-            solidInput.parentElement.classList.add('not-empty');
-        } else {
-            solidInput.parentElement.classList.add('empty');
-            solidInput.parentElement.classList.remove('not-empty');
-        }
-        if (maxLenghtIndicator) {
-            var currentLength = solidInput.value.length;
-            var maxLength = solidInput.dataset.maxChars;
-            var lengthIndicator = maxLenghtIndicator;
-
-            lengthIndicator.innerHTML = currentLength + "/" + maxLength;
-        }
-    }
-
-    function inputInit(Input) {
-        console.log(Input);
-        inputValueChange(Input);
-    }
+window.addEventListener('load', function (e) {
+    // Navbar article lenght/progress indicator
+    window.addEventListener('scroll', function () {
+        changeProgressIndicator();
+    });
+    changeProgressIndicator = function changeProgressIndicator() {
+        var articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
+        var article = document.getElementById('article');
+        var lecturePoint = Math.ceil(window.innerHeight * 1 / article.scrollHeight - window.scrollY);
+        var progressBarWidth = Math.ceil((window.scrollY - article.offsetTop + (document.body.scrollHeight - article.scrollHeight)) / article.scrollHeight * 100);
+        articleProgressIndicator.style.width = progressBarWidth + 'vw';
+        console.log(progressBarWidth);
+    };
 });
 
 /***/ })

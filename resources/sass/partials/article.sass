@@ -42,17 +42,18 @@
         &:not(:first-child(1))
             font-size: 1em
 
-        
-
     h2
         font-family: 'PT Serif', serif
         text-transform: capitalize
         font-weight: 600
-        font-size: 2.1em
+        font-size: $article_h2_fontsize
         margin: .25em 0em .5em
-    h3
+    h3, h4
         font-family: 'PT Serif', serif
         font-size: 1.5em
+
+    blockquote
+        font-style: italic
 
     @media screen and (min-width: 995px)
         &

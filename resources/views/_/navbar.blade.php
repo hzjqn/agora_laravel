@@ -56,3 +56,4 @@
         </div>
     </div>
 </nav>
+<div id="navbarArticleProgressIndicator"></div>

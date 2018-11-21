@@ -10,6 +10,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('head-js')
     
     <title>Agora
             @if(View::hasSection('title'))
@@ -23,7 +24,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/main.css">
+    @yield('head-css')
 </head>
 <body class="{{ View::hasSection('navbar') ? 'with-navbar' : null }} {{ View::hasSection('botbar') ? 'with-bottombar' : null }}">
     @if(View::hasSection('navbar'))
@@ -35,6 +36,7 @@
     @endif
     
     <!-- Scripts -->
-    <script src="{{ asset('js/solid.js') }}" defer></script>   
+    <script src="{{ asset('js/solid.js') }}" defer></script>
+    @yield('js');
 </body>
 </html>

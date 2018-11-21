@@ -25,7 +25,7 @@ Route::get('/javascript', function(){
 
 Route::group(['prefix' => 'articles'], function () {
     Route::get('/', 'ArticleController@index')->name('articles');
-    Route::get('/new', 'ArticleController@create')->name('new_article');
+    Route::get('/new', 'ArticleController@create')->name('new_article')->middleware('auth');
     Route::post('/new', 'ArticleController@store');
     Route::get('/{id}', 'ArticleController@show');
     Route::get('/{id}/edit', 'ArticleController@edit');

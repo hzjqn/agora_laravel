@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -25,6 +26,7 @@ class ArticleController extends Controller
     public function create()
     {
         //
+        return view('editor');
     }
 
     /**
@@ -36,8 +38,6 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
-        $title = $request['title'];
-        $content = $request['content'];
         $article = Article::create();
         $article->content = $request->content;
         $article->title = $request->title;
@@ -89,5 +89,21 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function createByApi(Request $request){
+
+        $data = $request->data;
+
+        try{$article = Article::create();
+        $article->content = $data['content'];
+        $article->title = $data['title'];
+        $article->user_id = $data['user_id'];
+        $article->save();
+
+        return 200;
+        } catch(Exception $error) {
+            return $error;
+        }
     }
 }

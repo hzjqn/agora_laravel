@@ -7,23 +7,6 @@
 
 @import '~bootstrap/scss/bootstrap'
 
-$_navbar_height: 64px
-$_navbar_max_height: 448px
-$_margin_root: 8px
-
-
-// Colors
-$_lightgrey: #EBEBEB
-$_grey: #aaa
-$_darkgrey: #123
-$_white: #fff
-$_black: #323232
-$_mainc: #0088ff //#6F6CDC
-$_goodgreen: #95ee7a
-
-// Shading
-$_shade : fade-out($_black, .71)
-
 // Tools – globally used mixins and functions.
 
 =user-select-none($value)
@@ -80,7 +63,6 @@ h6
 @import 'partials/components/bottombar'
 @import 'partials/login'
 @import 'grid'
-@import 'solid'
 
 
 a.user-tag
@@ -161,5 +143,11 @@ a.user-tag
             font-size: 56px
             color: $_white
 
-@import 'partials/article'
 @import 'partials/components/buttons'
+@import 'partials/article'
+@import 'partials/editor'
+
+
+
+@import 'solid'
+ 

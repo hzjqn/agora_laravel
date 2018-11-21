@@ -5,7 +5,13 @@ $body-bg: #f8fafc;
 // Typography
 $font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
+$article_h2_fontsize: 2.1em;
 $line-height-base: 1.6;
+
+$_navbar_height: 56px;
+$_navbar_max_height: 448px;
+$_margin_root: 8px;
+
 
 // Colors
 $blue: #3490dc;
@@ -18,3 +24,18 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$_lightgrey: #EBEBEB;
+$_grey: #aaa;
+$_darkgrey: #123;
+$_white: #fff;
+$_almost_white: #eee;
+$_black: #323232;
+$_mainc: #0088ff; //#6F6CDC
+$_goodgreen: #95ee7a;
+
+// Shading
+$_shade : fade-out($_black, .71);
+
+// Z-index Levels
+
+$_navbar_level: 90909090;

@@ -51,3 +51,7 @@
             </section>
     </div>
 @endsection
+
+@section('js')
+<script src="{{ asset('js/article.js') }}"></script>
+@endsection

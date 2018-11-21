@@ -60,56 +60,82 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 50);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 46:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
 
-/***/ 47:
+/***/ 51:
 /***/ (function(module, exports) {
 
+console.log('loaded editor js');
+
 window.addEventListener('DOMContentLoaded', function () {
-    var inputs = document.querySelectorAll('input.solid-input, input.solid-title-input');
+    var editorToolbar = document.getElementById('editorToolbar');
+    var editor = new MediumEditor('.editable', {
+        toolbar: {
+            updateOnEmptySelection: true,
+            buttons: ['bold', 'italic', 'underline', 'anchor', 'h3', 'h4', 'quote']
+        }
+    });
+    var title = document.querySelector('input[name="title"]');
+    var content = document.querySelector('#article');
+    var formData = new FormData();
+    fields = {
+        title: title.value,
+        content: content.innerHTML
+    };
 
-    for (var i = 0; i < inputs.length; i++) {
-        inputValueChange(inputs[i], inputs[i].parentElement.querySelector('.length-indicator .counter'));
+    formData.append('data', JSON.stringify(fields));
 
-        inputs[i].addEventListener('input', function () {
-            inputValueChange(this, this.parentElement.querySelector('.length-indicator .counter'));
+    var form = document.getElementById('editorMain');
+
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+        for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var pair = _step.value;
+
+            console.log(pair[0] + ', ' + pair[1]);
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        fetch('/api/article', {
+            method: 'POST',
+            body: FormData
+        }).then(function (response) {
+            response.json();
+        }).then(function (data) {
+            console.log(data);
+        }).catch(function (data) {
+            console.log(data);
         });
-    }
-
-    function inputValueChange(solidInput) {
-        var maxLenghtIndicator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-        if (solidInput.value.length) {
-            solidInput.parentElement.classList.remove('empty');
-            solidInput.parentElement.classList.add('not-empty');
-        } else {
-            solidInput.parentElement.classList.add('empty');
-            solidInput.parentElement.classList.remove('not-empty');
-        }
-        if (maxLenghtIndicator) {
-            var currentLength = solidInput.value.length;
-            var maxLength = solidInput.dataset.maxChars;
-            var lengthIndicator = maxLenghtIndicator;
-
-            lengthIndicator.innerHTML = currentLength + "/" + maxLength;
-        }
-    }
-
-    function inputInit(Input) {
-        console.log(Input);
-        inputValueChange(Input);
-    }
+    });
 });
 
 /***/ })
