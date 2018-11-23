@@ -12,9 +12,7 @@ class ViewController extends Controller
 {
     //
     public function index(){
-        $articles = Article::all()->reverse()->take(100);
-        $follows = Follow::all()->reverse()->take(100);
-        $allArticles = collect([$articles, $follows])->collapse()->take(25);
+        $allArticles = Article::all()->reverse()->take(100);
         return view('index', compact('allArticles'));
     }
 }

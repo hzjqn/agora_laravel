@@ -16,4 +16,5 @@ mix
     .js('resources/js/solid.js', 'public/js')
     .js('resources/js/article.js', 'public/js')
     .js('resources/js/editor.js', 'public/js')
+    .js('resources/js/mainfeed.js', 'public/js')
     .sass('resources/sass/app.sass', 'public/css').disableSuccessNotifications();

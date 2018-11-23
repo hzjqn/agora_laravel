@@ -135,7 +135,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 button.classList.add('success');
                 button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
                 console.log(response);
-                location.href = location.protocol + '/articles/' + response.article.id;
+                location.href = location.protocol + '/article/' + response.article.id;
             }).catch(function (data) {
                 console.log('data', data);
             });

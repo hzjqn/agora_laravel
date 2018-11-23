@@ -16,7 +16,7 @@
                     </li>
                     @else
                     <li class="nav-item m-x-md-1">
-                        <a class="toolbar-btn icon" href=" {{ route('new_article') }}"><i class="fas fa-pencil-alt"></i>{{ __('New Article') }}</i></a>
+                        <a class="toolbar-btn icon" href=" {{ route('article.new') }}"><i class="fas fa-pencil-alt"></i>{{ __('New Article') }}</i></a>
                     </li>
                     <li class="nav-item dropdown m-x-md-1">
                         <a id="navbarDropdown" class="toolbar-btn textless" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

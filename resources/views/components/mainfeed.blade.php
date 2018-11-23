@@ -1,4 +1,4 @@
-<main id="mainFeed">
+<main class="feed mainfeed" id="mainFeed">
     @forelse ($allArticles as $article)
         @component('components.card', ['action' => $article])
         @endcomponent

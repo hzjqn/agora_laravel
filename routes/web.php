@@ -23,7 +23,7 @@ Route::get('/javascript', function(){
     return view('js/string');
 });
 
-Route::name('article.')->group(['prefix' => 'article'], function () {
+Route::prefix('article')->name('article.')->group(function () {
     Route::get('/', 'ArticleController@index')->name('index');
     Route::get('/new', 'ArticleController@create')->name('new')->middleware('auth');
     Route::post('/new', 'ArticleController@store')->name('store');

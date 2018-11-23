@@ -11171,6 +11171,16 @@ a.user-tag {
   background: #cce7ff;
 }
 
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.feed.main-feed .carousel-cell {
+  height: 240px;
+  width: 20%;
+}
+
 .article.container,
 .article.container-fluid {
   display: -webkit-box;
@@ -11261,12 +11271,6 @@ a.user-tag {
 
 @media screen and (min-width: 995px) {
   #article {
-    padding-left: calc(280px + 1em);
-  }
-}
-
-@media screen and (min-width: 995px) {
-  #comments {
     padding-left: calc(280px + 1em);
   }
 }
