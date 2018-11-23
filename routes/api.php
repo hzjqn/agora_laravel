@@ -17,8 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('article', 'ArticleController@indexByApi');
-Route::get('article/{id}', 'ArticleController@showByApi');
-Route::post('article', 'ArticleController@createByApi');
-Route::put('article/{id}', 'ArticleController@createByApi')->middleware('auth:api');
-Route::delete('article/{id}', 'ArticleController@deleteByApi')->middleware('auth:api');
+Route::get('article', 'ArticleController@_index');
+Route::get('article/{id}', 'ArticleController@_show');
+Route::post('article', 'ArticleController@_create');
+Route::put('article/{id}', 'ArticleController@_create')->middleware('auth:api');
+Route::delete('article/{id}', 'ArticleController@_delete')->middleware('auth:api');

@@ -10,6 +10,7 @@
 <div class="container">
     <form class="editor solid-form" id="editorMain" autocomplete="off">
         <div class="input-case title">
+            <input type="text" autocomplete="false" name="user_id"  value="{{ Auth::user()->id }}" hidden>
             <input data-max-chars="190" type="text" autocomplete="false" name="title" class="editor title-input solid-title-input" value="{{ old('title') ?? __('') }}">
             <label for="title">{{ __('Title') }}</label>
         <span class="length-indicator"><i class="counter">0/190</i>&nbsp;— {{ __('Title character limit') }}</span>

@@ -79,61 +79,68 @@ module.exports = __webpack_require__(51);
 console.log('loaded editor js');
 
 window.addEventListener('DOMContentLoaded', function () {
-    var editorToolbar = document.getElementById('editorToolbar');
+
+    // Instanciamos objeto MediumEditor en el div.editable. 
     var editor = new MediumEditor('.editable', {
         toolbar: {
             updateOnEmptySelection: true,
             buttons: ['bold', 'italic', 'underline', 'anchor', 'h3', 'h4', 'quote']
         }
     });
-    var title = document.querySelector('input[name="title"]');
-    var content = document.querySelector('#article');
-    var formData = new FormData();
-    fields = {
-        title: title.value,
-        content: content.innerHTML
-    };
 
-    formData.append('data', JSON.stringify(fields));
+    // Apuntamos a nuestro input para obtener el valor del titulo
+    var title = document.querySelector('input[name="title"]');
+    var user_id = document.querySelector('input[name="user_id"]');
+
+    // Apuntamos a nuestro article body para objetener el valor del mismo
+    var content = document.querySelector('#article');
+
+    var formData = new FormData();
 
     var form = document.getElementById('editorMain');
 
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-        for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var pair = _step.value;
-
-            console.log(pair[0] + ', ' + pair[1]);
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
-            }
-        } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
-        }
-    }
-
     form.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        formData.append('title', title.value);
+        formData.append('content', content.innerHTML);
+        formData.append('user_id', user_id.value);
+
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var pair = _step.value;
+
+                console.log(pair[0] + ', ' + pair[1]);
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+
         fetch('/api/article', {
-            method: 'POST',
-            body: FormData
+            method: "POST",
+            body: formData
         }).then(function (response) {
+            console.log(formData);
             response.json();
         }).then(function (data) {
-            console.log(data);
+            console.log('data', data);
         }).catch(function (data) {
-            console.log(data);
+            console.log('data', data);
         });
     });
 });

@@ -91,19 +91,8 @@ class ArticleController extends Controller
         //
     }
 
-    public function createByApi(Request $request){
-
-        $data = $request->data;
-
-        try{$article = Article::create();
-        $article->content = $data['content'];
-        $article->title = $data['title'];
-        $article->user_id = $data['user_id'];
-        $article->save();
-
+    public function _create(Request $request){
+        $article = Article::create($request->except('_token'));
         return 200;
-        } catch(Exception $error) {
-            return $error;
-        }
     }
 }
