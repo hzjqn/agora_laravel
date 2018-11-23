@@ -21,10 +21,10 @@
         <div id="article" autofocus="true" class="editor-canvas editable" placeholder="{{ __("Write here.") }}">
         </div> 
         <div class="editor-form">
-            <button class="btn objective">
+            <button id="publishBtn" class="btn objective">
                 {{ __('Publish') }}
             </button>
-            <button class="btn sidequest">
+            <button id="saveBtn" class="btn sidequest">
                 {{ __('Save as draft') }}
             </button>
         </div>

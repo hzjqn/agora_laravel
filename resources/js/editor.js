@@ -14,6 +14,9 @@ window.addEventListener('DOMContentLoaded', function(){
     const title = document.querySelector('input[name="title"]');
     const user_id = document.querySelector('input[name="user_id"]');
 
+    const publishBtn = document.querySelector('button#publishBtn');
+    const saveBtn = document.querySelector('button#saveBtn');
+
     // Apuntamos a nuestro article body para objetener el valor del mismo
     const content = document.querySelector('#article');
 
@@ -22,17 +25,53 @@ window.addEventListener('DOMContentLoaded', function(){
 
     const form = document.getElementById('editorMain');
     
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+    });
 
-    form.addEventListener('submit', function(e){        
+    publishBtn.addEventListener('click', function(e){        
+        e.preventDefault();
+
+        const that = this;
+        
+        previousHTML = this.innerHTML;
+        this.innerHTML = previousHTML + "<i class='fas fa-spin fa-circle-notch'></i>";
+        saveBtn.disabled = true;
+        this.disabled = true;
+
+        formData.append('title', title.value);
+        formData.append('content', content.innerHTML);
+        formData.append('user_id', user_id.value);
+
+        console.log(that);
+
+        setTimeout(function(){
+            console.log(that);
+            button = that;
+            console.log('timeout');
+            fetch('/api/article', {
+                method: "POST",
+                body: formData
+            }).then(function(response){
+                console.log(formData)
+                response.json();
+            }).then(function(data){
+                console.log(button);
+                button.classList.add('success');
+                button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
+            }).catch(function(data){
+                console.log('data', data);
+            });
+        }, 2000);
+    });
+
+    saveBtn.addEventListener('click', function(e){        
         e.preventDefault();
 
         formData.append('title', title.value);
         formData.append('content', content.innerHTML);
         formData.append('user_id', user_id.value);
-        
-        for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
+
 
         fetch('/api/article', {
             method: "POST",

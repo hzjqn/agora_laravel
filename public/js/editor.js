@@ -92,6 +92,9 @@ window.addEventListener('DOMContentLoaded', function () {
     var title = document.querySelector('input[name="title"]');
     var user_id = document.querySelector('input[name="user_id"]');
 
+    var publishBtn = document.querySelector('button#publishBtn');
+    var saveBtn = document.querySelector('button#saveBtn');
+
     // Apuntamos a nuestro article body para objetener el valor del mismo
     var content = document.querySelector('#article');
 
@@ -101,35 +104,50 @@ window.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
+    });
+
+    publishBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        var that = this;
+
+        previousHTML = this.innerHTML;
+        this.innerHTML = previousHTML + "<i class='fas fa-spin fa-circle-notch'></i>";
+        saveBtn.disabled = true;
+        this.disabled = true;
 
         formData.append('title', title.value);
         formData.append('content', content.innerHTML);
         formData.append('user_id', user_id.value);
 
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
+        console.log(that);
 
-        try {
-            for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var pair = _step.value;
+        setTimeout(function () {
+            console.log(that);
+            button = that;
+            console.log('timeout');
+            fetch('/api/article', {
+                method: "POST",
+                body: formData
+            }).then(function (response) {
+                console.log(formData);
+                response.json();
+            }).then(function (data) {
+                console.log(button);
+                button.classList.add('success');
+                button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
+            }).catch(function (data) {
+                console.log('data', data);
+            });
+        }, 2000);
+    });
 
-                console.log(pair[0] + ', ' + pair[1]);
-            }
-        } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-        } finally {
-            try {
-                if (!_iteratorNormalCompletion && _iterator.return) {
-                    _iterator.return();
-                }
-            } finally {
-                if (_didIteratorError) {
-                    throw _iteratorError;
-                }
-            }
-        }
+    saveBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        formData.append('title', title.value);
+        formData.append('content', content.innerHTML);
+        formData.append('user_id', user_id.value);
 
         fetch('/api/article', {
             method: "POST",
