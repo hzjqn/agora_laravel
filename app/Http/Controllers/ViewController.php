@@ -14,7 +14,7 @@ class ViewController extends Controller
     public function index(){
         $articles = Article::all()->reverse()->take(100);
         $follows = Follow::all()->reverse()->take(100);
-        $last_actions = collect([$articles, $follows])->collapse()->take(25);
-        return view('index', compact('last_actions'));
+        $allArticles = collect([$articles, $follows])->collapse()->take(25);
+        return view('index', compact('allArticles'));
     }
 }

@@ -80,7 +80,7 @@ console.log('loaded editor js');
 
 window.addEventListener('DOMContentLoaded', function () {
 
-    // Instanciamos objeto MediumEditor en el div.editable. 
+    // Instanciamos objeto MediumEditor en el div.editable.
     var editor = new MediumEditor('.editable', {
         toolbar: {
             updateOnEmptySelection: true,
@@ -130,12 +130,12 @@ window.addEventListener('DOMContentLoaded', function () {
                 method: "POST",
                 body: formData
             }).then(function (response) {
-                console.log(formData);
-                response.json();
-            }).then(function (data) {
-                console.log(button);
+                return response.json();
+            }).then(function (response) {
                 button.classList.add('success');
                 button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
+                console.log(response);
+                location.href = location.protocol + '/articles/' + response.article.id;
             }).catch(function (data) {
                 console.log('data', data);
             });

@@ -2,7 +2,7 @@ console.log('loaded editor js');
 
 window.addEventListener('DOMContentLoaded', function(){
 
-    // Instanciamos objeto MediumEditor en el div.editable. 
+    // Instanciamos objeto MediumEditor en el div.editable.
     var editor = new MediumEditor('.editable', {
         toolbar :   {
             updateOnEmptySelection: true,
@@ -24,16 +24,16 @@ window.addEventListener('DOMContentLoaded', function(){
     var formData = new FormData();
 
     const form = document.getElementById('editorMain');
-    
+
     form.addEventListener('submit', function(e){
         e.preventDefault();
     });
 
-    publishBtn.addEventListener('click', function(e){        
+    publishBtn.addEventListener('click', function(e){
         e.preventDefault();
 
         const that = this;
-        
+
         previousHTML = this.innerHTML;
         this.innerHTML = previousHTML + "<i class='fas fa-spin fa-circle-notch'></i>";
         saveBtn.disabled = true;
@@ -53,19 +53,19 @@ window.addEventListener('DOMContentLoaded', function(){
                 method: "POST",
                 body: formData
             }).then(function(response){
-                console.log(formData)
-                response.json();
-            }).then(function(data){
-                console.log(button);
+                return response.json();
+            }).then(function(response){
                 button.classList.add('success');
                 button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
+                console.log(response);
+                location.href = location.protocol+'/articles/'+response.article.id;
             }).catch(function(data){
                 console.log('data', data);
             });
         }, 2000);
     });
 
-    saveBtn.addEventListener('click', function(e){        
+    saveBtn.addEventListener('click', function(e){
         e.preventDefault();
 
         formData.append('title', title.value);

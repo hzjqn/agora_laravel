@@ -23,14 +23,14 @@ Route::get('/javascript', function(){
     return view('js/string');
 });
 
-Route::group(['prefix' => 'articles'], function () {
-    Route::get('/', 'ArticleController@index')->name('articles');
-    Route::get('/new', 'ArticleController@create')->name('new_article')->middleware('auth');
-    Route::post('/new', 'ArticleController@store');
-    Route::get('/{id}', 'ArticleController@show');
-    Route::get('/{id}/edit', 'ArticleController@edit');
-    Route::post('/{id}/edit', 'ArticleController@update');
-    Route::post('/{id}/destroy', 'ArticleController@destoy');
+Route::name('article.')->group(['prefix' => 'article'], function () {
+    Route::get('/', 'ArticleController@index')->name('index');
+    Route::get('/new', 'ArticleController@create')->name('new')->middleware('auth');
+    Route::post('/new', 'ArticleController@store')->name('store');
+    Route::get('/{id}', 'ArticleController@show')->name('show');
+    Route::get('/{id}/edit', 'ArticleController@edit')->name('edit');
+    Route::post('/{id}/edit', 'ArticleController@update')->name('update');
+    Route::post('/{id}/destroy', 'ArticleController@destoy')->name('destroy');
 });
 
 Route::group(['prefix' => 'comments'], function () {
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'comments'], function () {
 });
 
 Route::group(['prefix' => 'users'], function () {
-    Route::get('/', 'UserController@index');
+    Route::get('/', 'UserController@index')->name('users');
     Route::get('/new', 'UserController@create')->middleware('auth');
     Route::post('/new', 'UserController@store')->middleware('auth');
     Route::get('/{id}', 'UserController@show');

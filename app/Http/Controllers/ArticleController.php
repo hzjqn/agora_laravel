@@ -52,7 +52,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {
         $article = Article::find($id);
         return view('article', ['article' => $article]);
     }
@@ -89,10 +89,5 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
-    }
-
-    public function _create(Request $request){
-        $article = Article::create($request->except('_token'));
-        return 200;
     }
 }

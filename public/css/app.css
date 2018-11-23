@@ -11062,7 +11062,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
+  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -11105,7 +11105,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
+  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -11135,6 +11135,10 @@ a.user-tag {
   padding: .25em 1em;
 }
 
+.btn.success {
+  background: #42f489;
+}
+
 .btn.follow-btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11156,6 +11160,10 @@ a.user-tag {
 .btn.objective {
   color: #fff;
   background: #0088ff;
+}
+
+.btn.objective.success {
+  background: #42f489;
 }
 
 .btn.sidequest {

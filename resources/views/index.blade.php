@@ -4,10 +4,6 @@
 @section('botbar', '')
 
 @section('content')
-    @forelse ($last_actions as $action)
-        @component('components.card', ['action' => $action])
-        @endcomponent
-    @empty
-
-    @endforelse
+    @component('components.mainfeed', ['allArticles' => $allArticles])
+    @endcomponent
 @endsection

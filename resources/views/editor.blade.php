@@ -16,10 +16,10 @@
         <span class="length-indicator"><i class="counter">0/190</i>&nbsp;— {{ __('Title character limit') }}</span>
         </div>
         <div id="editorToolbar" class="editor toolbar">
-            
+
         </div>
         <div id="article" autofocus="true" class="editor-canvas editable" placeholder="{{ __("Write here.") }}">
-        </div> 
+        </div>
         <div class="editor-form">
             <button id="publishBtn" class="btn objective">
                 {{ __('Publish') }}

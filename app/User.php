@@ -48,19 +48,19 @@ class User extends Authenticatable
                 }
                 break;
 
-            case 'mod' || '8':    
+            case 'mod' || '8':
                 if($this->role == 8 || $this->role == 9){
                     return true;
                 }
                 break;
 
-            case 'user' || '0':    
+            case 'user' || '0':
                 if($this->role == 0 || $this->role == 8 || $this->role == 9){
                     return true;
                 }
                 break;
 
-            default: 
+            default:
                 return false;
                 break;
         }
@@ -74,11 +74,11 @@ class User extends Authenticatable
      * Returns all the users that the user follows
      */
     public function following(){
-        return $this->hasMany(Follow::class);
+        return $this->belongsToMany(Follow::class, 'follower_id');
     }
 
     public function followed(){
-        return $this->belongsToMany(Follow::class);
+        return $this->belongsToMany(Follow::class, 'followed_id');
     }
 
     public function comments(){
