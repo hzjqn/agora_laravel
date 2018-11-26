@@ -1,3 +1,107 @@
 .card
-    width: 100%
+    display: flex
+    border: none
+    outline: none
+    width: calc(100% - 16px)
     height: 100%
+    margin: 0px 8px 16px
+    overflow: hidden
+    transition: box-shadow .25s ease
+
+    a
+        color: inherit
+        text-decoration: none
+
+    &.article
+        display: block
+        float: left
+        vertical-align: text-top
+        width: 280px
+        height: 200px
+        margin: 8px
+        box-shadow: $_shadow_1
+
+        .author-reference
+            text-shadow: 0px 0px 32px 0px $_shade
+            color: $_white
+            padding: 0px 8px
+            
+        &:hover
+            box-shadow: $_shadow_3
+
+        @media screen and (min-width: $_md)
+            width: calc(50% - 16px)
+            &.main-card
+                height: 300px
+                width: calc(100% - 16px)
+
+        header
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            height: 75%
+            width: 100%
+
+        h3.card-title
+            font-family: 'PT Serif', serif
+            padding: 0px 8px
+            bottom: 64px
+            font-size: 24px
+            width: 100%
+            white-space: wrap
+            text-overflow: ellipsis
+            color: $_white
+            font-weight: 600
+            text-transform: capitalize
+            text-shadow: 0px 0px 32px 0px $_shade
+
+            @media screen and (min-width: $_md)
+                font-size: 32px
+        
+        summary
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 100%
+            background: $_white
+            position: absolute
+            height: 64px
+            bottom: 0px
+            padding: 8px
+            overflow: hidden
+
+        .cover
+            z-index: 1;
+            width: 100%
+            height: 100%
+            position: absolute
+
+    &.pop
+        margin: 16px
+        padding: 8px
+
+        &+.spacer
+            border-top: 1px dotted $_black
+            margin: 0px 64px
+
+
+        h3.card-title, h3.card-title:link
+            text-decoration: none
+            text-transform: capitalize
+            font-family: 'PT Serif', serif
+            font-weight: 600
+            color: $_black
+            font-size: 18px
+
+.action-bar
+    display: flex
+    flex-direction: row
+    button
+        border: none
+        background: transparent
+        color: $_black
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 32px
+        height: 32px

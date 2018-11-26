@@ -4,8 +4,15 @@
 @section('botbar', '')
 
 @section('content')
-    @component('components.mainfeed', ['allArticles' => $allArticles])
-    @endcomponent
+<div class="container feed">
+    <div class="row feed">
+        @component('components.mainfeed', ['articles' => $allArticles, 'title' => __('From your subcriptions')])
+        @endcomponent
+        
+        @component('components.popfeed', ['articles' => $mostPopularArticles,  'title' => __('Most popular articles')])
+        @endcomponent
+    </div>
+</div>
 @endsection
 
 @section('js')

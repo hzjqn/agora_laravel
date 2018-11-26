@@ -5,10 +5,15 @@ use App\Article;
 use App\User;
 
 $factory->define(App\Article::class, function (Faker $faker) {
-    $users = User::all()->take(10);
+    $isDraft = rand(0, 4) == 4 ? 1 : 0;
+    $users = User::all()->take(50);
+    $paragraphs = '<p>' . implode('</p><p>', $faker->paragraphs(4)) . '</p>';
+
     return [
         'title' => $faker->sentence(),
-        'content' => json_encode($faker->paragraphs(4)),
+        'content' => $paragraphs,
         'user_id' => $users->random()->id,
+        'draft' =>  $isDraft,
+        'cover' => 'https://picsum.photos/1200/600',
     ];
 });

@@ -33,7 +33,7 @@ Route::prefix('article')->name('article.')->group(function () {
     Route::post('/{id}/destroy', 'ArticleController@destoy')->name('destroy');
 });
 
-Route::group(['prefix' => 'comments'], function () {
+Route::prefix('comment')->name('comment.')->group(function () {
     Route::get('/', 'CommentController@index');
     Route::get('/new', 'CommentController@create')->middleware('auth');
     Route::post('/new', 'CommentController@store')->middleware('auth');
@@ -43,14 +43,14 @@ Route::group(['prefix' => 'comments'], function () {
     Route::post('/{id}/destroy', 'CommentController@destoy')->middleware('auth');
 });
 
-Route::group(['prefix' => 'users'], function () {
-    Route::get('/', 'UserController@index')->name('users');
-    Route::get('/new', 'UserController@create')->middleware('auth');
-    Route::post('/new', 'UserController@store')->middleware('auth');
-    Route::get('/{id}', 'UserController@show');
-    Route::get('/{id}/edit', 'UserController@edit')->middleware('auth');
-    Route::post('/{id}/edit', 'UserController@update')->middleware('auth');
-    Route::post('/{id}/destroy', 'UserController@destoy')->middleware('auth');
+Route::prefix('user')->name('user.')->group( function () {
+    Route::get('/', 'UserController@index')->name('index');
+    Route::get('/new', 'UserController@create')->name('new')->middleware('auth');
+    Route::post('/new', 'UserController@store')->name('store')->middleware('auth');
+    Route::get('/{id}', 'UserController@show')->name('show');
+    Route::get('/{id}/edit', 'UserController@edit')->name('edit')->middleware('auth');
+    Route::post('/{id}/edit', 'UserController@update')->name('update')->middleware('auth');
+    Route::post('/{id}/destroy', 'UserController@destoy')->name('destroy')->middleware('auth');
 });
 
 Route::group(['prefix' => 'likes'], function () {

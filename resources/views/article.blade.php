@@ -3,17 +3,21 @@
 @section('navbar', '')
 @section('botbar', '')
 @section('content')
-    <div class="container article">
+    <div class="container">
             <main class="article body" id="article">
-                
-                <div class="tag-wrapper">
-                    <a href="" class="tag">#tag</a>
+                <div class="cover" style="background-image: url('{{ $article->cover }}')">
+                    asdfasdf
                 </div>
                 
                 <h2>{{ $article->title }}</h2>
+                
 
                 <div class="author-reference">
-                {{ __('Written by')  }} <img class="inline-icon-pp" src="{{ $article->user->profile_picture ? URL::asset($article->user->profile_picture) : URL::asset('img/pp.png') }}" alt="{{ __("Author's profile picture") }}"> {{$article->user->name }} <a class="user-tag" href="">{{ '@'.$article->user->username  }}</a>
+                {{ __('Written by')  }} <img class="inline-icon-pp" src="{{ $article->user->profile_picture ? URL::asset($article->user->profile_picture) : URL::asset('img/pp.png') }}" alt="{{ __("Author's profile picture") }}"> {{$article->user->name }} <a class="user-tag" href="{{ route('user.index')}}/{{$article->user->id}}">{{ '@'.$article->user->username  }}</a>
+                </div>
+                
+                <div class="tag-wrapper">
+                    <a href="" class="tag">#tag</a>
                 </div>
                 
                 {!! $article->content !!}
@@ -24,7 +28,7 @@
                     <img class="navbar-pp" src="{{ $article->user->profile_picture ? URL::asset($article->user->profile_picture) : URL::asset('img/pp.png') }}" alt="{{ __("Author's profile picture") }}">
                 </div>
                 <h5>{{ $article->user->name }}</h5>
-                <a href=""class="user-tag">{{ '@'.$article->user->username }}</a>
+                <a href="{{ route('user.index')}}/{{$article->user->id}}" class="user-tag">{{ '@'.$article->user->username }}</a>
                 @component('components.followbtn', ['follower'=>Auth::user(), 'followed'=>$article->user])
                 @endcomponent
             </aside>

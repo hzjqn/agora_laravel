@@ -120,10 +120,7 @@ window.addEventListener('DOMContentLoaded', function () {
         formData.append('content', content.innerHTML);
         formData.append('user_id', user_id.value);
 
-        console.log(that);
-
         setTimeout(function () {
-            console.log(that);
             button = that;
             console.log('timeout');
             fetch('/api/article', {
@@ -145,9 +142,17 @@ window.addEventListener('DOMContentLoaded', function () {
     saveBtn.addEventListener('click', function (e) {
         e.preventDefault();
 
+        var that = this;
+
+        previousHTML = this.innerHTML;
+        this.innerHTML = previousHTML + "<i class='fas fa-spin fa-circle-notch'></i>";
+        saveBtn.disabled = true;
+        this.disabled = true;
+
         formData.append('title', title.value);
         formData.append('content', content.innerHTML);
         formData.append('user_id', user_id.value);
+        formData.append('draft', 1);
 
         fetch('/api/article', {
             method: "POST",
@@ -155,9 +160,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }).then(function (response) {
             console.log(formData);
             response.json();
-        }).then(function (data) {
-            console.log('data', data);
-        }).catch(function (data) {
+        }).then(function (data) {}).catch(function (data) {
             console.log('data', data);
         });
     });

@@ -76,13 +76,14 @@ module.exports = __webpack_require__(53);
 /***/ 53:
 /***/ (function(module, exports) {
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('load', function () {
     var mainfeed = document.querySelector('#mainFeed');
     var flkty = new Flickity(mainfeed, {
+        cellAlign: 'center',
         draggable: true,
-        freeScroll: true,
-        wrapAround: true,
-        groupCells: true
+        watchCSS: true,
+        prevNextButtons: false,
+        pageDots: false
     });
 });
 

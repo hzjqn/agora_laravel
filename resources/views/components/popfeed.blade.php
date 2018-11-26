@@ -1,12 +1,13 @@
-<main class="col-12 col-md-8">
+<main class="col-12 col-md-4">
     <h2 class="feed-title">{{ $title }}</h2>
-    <div class="feed mainfeed" id="mainFeed">
+    <div class="feed mainfeed" id="popFeed">
     @forelse ($articles as $article)
         @if($loop->first)
-            @component('components.card', ['action' => $article, 'type' => 'article', 'classes' => 'main-card'])
+            @component('components.card', ['action' => $article, 'type' => 'pop'])
             @endcomponent
         @else
-            @component('components.card', ['action' => $article, 'type' => 'article'])
+            <div class="spacer"></div>
+            @component('components.card', ['action' => $article, 'type' => 'pop'])
             @endcomponent
         @endif
     @empty

@@ -31,14 +31,17 @@
     @if(View::hasSection('navbar'))
         @include('components.navbar')
     @endif
-    @yield('content')
+        @yield('content')
     @if(View::hasSection('botbar'))
         @include('components.bottombar')
     @endif
+
+    @include('components.footer')
     
     <!-- Scripts -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
     <script src="{{ asset('js/solid.js') }}" defer></script>
-    @yield('js');
+    @yield('js')
 </body>
 </html>

@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <form class="editor solid-form" id="editorMain" autocomplete="off">
         <div class="input-case title">
             <input type="text" autocomplete="false" name="user_id"  value="{{ Auth::user()->id }}" hidden>

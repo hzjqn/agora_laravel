@@ -12,7 +12,9 @@ class ViewController extends Controller
 {
     //
     public function index(){
-        $allArticles = Article::all()->reverse()->take(100);
-        return view('index', compact('allArticles'));
+        $allArticles = Article::all()->reverse()->take(5);
+        $mostPopularArticles = Article::all()->reverse()->take(5);
+
+        return view('index', compact('allArticles', 'mostPopularArticles'));
     }
 }

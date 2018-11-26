@@ -1,5 +1,5 @@
 
-    
+
 .article
     &.container,
     &.container-fluid
@@ -12,23 +12,27 @@
             order: 2
         #comments
             order: 3
-    
+
+.inline-icon-pp
+    border-radius: 100%
+    width: 24px
+    height: 24px
+
 #article
     font-family: 'PT Serif', serif
     font-size: 1.2rem
-    padding: 0px 1em
+    padding: 10em 1em
 
-    .author-reference
-        font-family: 'Open Sans', sans-serif
-        font-size: 0.86em
-        margin-bottom: 2em
-
-        .inline-icon-pp
-            width: 32px
-            height: 32px
+    .cover
+        background-size: cover
+        top: 0px
+        left: 0px
+        width: 100%
+        height: calc(10em + 64px)
+        position: absolute
 
     .tag-wrapper
-        margin: 0px
+        margin: 0px 0px 1.5em
 
     summary
         font-size: 1.25em
@@ -54,10 +58,6 @@
 
     blockquote
         font-style: italic
-
-    @media screen and (min-width: 995px)
-        &
-            padding-left: calc(280px + 1em)
 
 
 aside#author

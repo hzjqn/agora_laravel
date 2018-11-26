@@ -1,4 +1,10 @@
 
+// Viewports
+$_lg : 980px;
+$_md : 768px;
+$_sm : 480px;
+$_xs : 360px;
+
 // Body
 $body-bg: #f8fafc;
 
@@ -35,6 +41,15 @@ $_success_green: #42f489;
 
 // Shading
 $_shade : fade-out($_black, .71);
+
+$_shadow_1: 0px 0px 1px 0px fade-out($_shade, .25), 
+            0px 2px 4px 0px $_shade;
+
+$_shadow_2: 0px 0px 1px 0px fade-out($_shade, .25),
+            0px 3px 8px 0px $_shade;
+
+$_shadow_3: 0px 0px 1px 0px fade-out($_shade, .25), 
+            0px 6px 9px 0px $_shade;
 
 // Z-index Levels
 

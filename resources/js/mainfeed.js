@@ -1,9 +1,10 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('load', function(){
     const mainfeed = document.querySelector('#mainFeed');
     var flkty = new Flickity(mainfeed, {
+        cellAlign: 'center',
         draggable: true,
-        freeScroll: true,
-        wrapAround: true,
-        groupCells: true
+        watchCSS: true,
+        prevNextButtons: false,
+        pageDots: false
     });
 });
