@@ -63,7 +63,11 @@ Route::group(['prefix' => 'follow'], function () {
     Route::post('/unfollow', 'FollowController@unfollow');
 });
 
-Route::get('/account', 'AccountController@show')->name('account')->middleware('auth');
+Route::prefix('account')->name('account')->middleware('auth')->group(function(){
+    Route::get('/', 'AccountController@show');
+    Route::get('/edit', 'AccountController@edit')->name('.edit');
+    Route::post('/edit', 'AccountController@show')->name('.save');
+});
 
 
 // Solucionar el problema con mail -> sender

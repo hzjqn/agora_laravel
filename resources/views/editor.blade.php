@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <form class="editor solid-form" id="editorMain" autocomplete="off">
         <div class="input-case title">
             <input type="text" autocomplete="false" name="user_id"  value="{{ Auth::user()->id }}" hidden>
@@ -20,6 +20,8 @@
         </div>
         <div id="article" autofocus="true" class="editor-canvas editable" placeholder="{{ __("Write here.") }}">
         </div>
+        <label for="cover">Subir una foto de portada</label><br>
+        <input type="file" name="cover" id="cover">
         <div class="editor-form">
             <button id="publishBtn" class="btn objective">
                 {{ __('Publish') }}

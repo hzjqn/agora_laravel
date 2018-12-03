@@ -7,18 +7,18 @@
                 <div class="cover" style="background-image: url('{{ $article->cover }}')">
                     asdfasdf
                 </div>
-                
+
                 <h2>{{ $article->title }}</h2>
-                
+
 
                 <div class="author-reference">
                 {{ __('Written by')  }} <img class="inline-icon-pp" src="{{ $article->user->profile_picture ? URL::asset($article->user->profile_picture) : URL::asset('img/pp.png') }}" alt="{{ __("Author's profile picture") }}"> {{$article->user->name }} <a class="user-tag" href="{{ route('user.index')}}/{{$article->user->id}}">{{ '@'.$article->user->username  }}</a>
                 </div>
-                
+
                 <div class="tag-wrapper">
                     <a href="" class="tag">#tag</a>
                 </div>
-                
+
                 {!! $article->content !!}
             </main>
             <aside class="article author profile" id="author">
