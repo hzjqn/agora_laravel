@@ -1,7 +1,6 @@
 {{-- nos tiene que llegar desde el controller via view() los comentarios, los autores y el articulo --}}
 @extends('layouts.main')
 @section('navbar', '')
-@section('botbar', '')
 @section('content')
     <div class="container">
             <main class="article body" id="article">
@@ -35,7 +34,10 @@
             <section id="comments">
                 <h4>Comentarios</h4>
                 <div class="container">
-                    A comment
+                  <form action="">
+                        <input type="text">
+                        <button type="submit">Enviar</button>
+                  </form>
                 </div>
             </section>
     </div>

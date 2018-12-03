@@ -22,3 +22,5 @@ Route::get('article/{id}', '_ArticleController@show');
 Route::post('article', '_ArticleController@create');
 Route::put('article/{id}', '_ArticleController@create')->middleware('auth:api');
 Route::delete('article/{id}', '_ArticleController@delete')->middleware('auth:api');
+
+Route::post('comment/new', '_CommentController@new');
