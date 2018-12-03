@@ -10718,7 +10718,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
+  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -10761,7 +10761,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
+  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -11412,6 +11412,19 @@ h2.feed-title {
   .mainfeed:after {
     content: '';
   }
+}
+
+.account-main .data-value {
+  display: block;
+}
+
+.account-main .data-value span.label,
+.account-main .data-value span.value {
+  display: block;
+}
+
+.account-main .data-value span.label {
+  font-weight: 600;
 }
 
 .article.container,
