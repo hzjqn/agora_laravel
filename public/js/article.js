@@ -76,20 +76,20 @@ module.exports = __webpack_require__(49);
 /***/ 49:
 /***/ (function(module, exports) {
 
-
 window.addEventListener('load', function (e) {
-    // Navbar article lenght/progress indicator
-    window.addEventListener('scroll', function () {
-        changeProgressIndicator();
-    });
-    changeProgressIndicator = function changeProgressIndicator() {
-        var articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
-        var article = document.getElementById('article');
-        var lecturePoint = Math.ceil(window.innerHeight * 1 / article.scrollHeight - window.scrollY);
-        var progressBarWidth = Math.ceil((window.scrollY - article.offsetTop + (document.body.scrollHeight - article.scrollHeight)) / article.scrollHeight * 100);
-        articleProgressIndicator.style.width = progressBarWidth + 'vw';
-        console.log(progressBarWidth);
-    };
+  // Navbar article lenght/progress indicator
+  window.addEventListener('scroll', function () {
+    changeProgressIndicator();
+  });
+
+  changeProgressIndicator = function changeProgressIndicator() {
+    var articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
+    var article = document.getElementById('article');
+    var lecturePoint = Math.ceil(window.innerHeight * 1 / article.scrollHeight - window.scrollY);
+    var progressBarWidth = Math.ceil((window.scrollY - article.offsetTop + (document.body.scrollHeight - article.scrollHeight)) / article.scrollHeight * 100);
+    articleProgressIndicator.style.width = progressBarWidth + 'vw';
+    console.log(progressBarWidth);
+  };
 });
 
 /***/ })

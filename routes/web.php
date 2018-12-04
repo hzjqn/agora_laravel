@@ -53,6 +53,10 @@ Route::prefix('user')->name('user.')->group( function () {
     Route::post('/{id}/destroy', 'UserController@destoy')->name('destroy')->middleware('auth');
 });
 
+Route::domain('{username}'.env('APP_DOMAIN').':8000')->group(function(){
+    Route::get('/', 'UserComponent@show');
+});
+
 Route::group(['prefix' => 'likes'], function () {
     Route::post('/like', 'LikeController@like');
     Route::post('/unilike', 'LikeController@unlike');

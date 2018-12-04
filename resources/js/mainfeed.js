@@ -4,7 +4,6 @@ window.addEventListener('load', function(){
         cellAlign: 'center',
         draggable: true,
         watchCSS: true,
-        prevNextButtons: false,
         pageDots: false
     });
 });

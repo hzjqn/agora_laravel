@@ -1,5 +1,5 @@
 @auth
-    <form action="{{ route('follow') }}" method="post">
+<form action="{{ Auth::user()->following->find($followed->id) ? route('unfollow') : route('follow') }}" method="{{ Auth::user()->following->find($id_to_follow) ? 'delete' : 'post' }}">
         @csrf
         <input type="number" hidden value="{{ $follower->id }}" name="follower_id">
         <input type="number" hidden value="{{ $followed->id }}" name="followed_id">

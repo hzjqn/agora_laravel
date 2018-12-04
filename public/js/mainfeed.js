@@ -77,14 +77,13 @@ module.exports = __webpack_require__(53);
 /***/ (function(module, exports) {
 
 window.addEventListener('load', function () {
-    var mainfeed = document.querySelector('#mainFeed');
-    var flkty = new Flickity(mainfeed, {
-        cellAlign: 'center',
-        draggable: true,
-        watchCSS: true,
-        prevNextButtons: false,
-        pageDots: false
-    });
+  var mainfeed = document.querySelector('#mainFeed');
+  var flkty = new Flickity(mainfeed, {
+    cellAlign: 'center',
+    draggable: true,
+    watchCSS: true,
+    pageDots: false
+  });
 });
 
 /***/ })
