@@ -8,29 +8,27 @@ use App\Article;
 
 class _CommentController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $validaciones = [
-            'comment' =>'required'
+        $comment = [
+            'content' => $request->input('content'),
+            'user_id' => $request->input('user_id'),
+            'article_id' => $request->input('article_id')
         ];
-        $this->validate($validaciones);
 
-        $comentario = Comment::create([
-            'comment'=>$request->input('comment')
-        ]);
-        return view('article/{{$comentario->article_id}}');
+        $validaciones = [
+            'content' =>'required',
+            'user_id '=>'required',
+            'article_id'=>'required'
+        ];
+
+        // $this->validate($validaciones);
+
+        $commentToRet = Comment::create($comment);
+
+        return response()->json($commentToRet);
     }
+
 
     /**
      * Display the specified resource.

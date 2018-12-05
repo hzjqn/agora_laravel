@@ -4,5 +4,6 @@
     "/js/solid.js": "/js/solid.js",
     "/js/mainfeed.js": "/js/mainfeed.js",
     "/js/editor.js": "/js/editor.js",
+    "/js/comments.js": "/js/comments.js",
     "/js/article.js": "/js/article.js"
 }

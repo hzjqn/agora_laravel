@@ -27,6 +27,23 @@
             </div>
         </summary>
     </article>
+@elseif($type == 'comment')
+    <article class="card comment {{ $classes ?? '' }}">
+        @php
+            $comment = $action;
+        @endphp
+        <div>
+            {{$comment->user->profile_picture}}
+        </div>
+        <div> 
+            <h4>{{ $comment->user->name }}</h4>
+        </div>
+        <div>
+            {{$comment->content}}
+        </div>
+       
+    </article>
+
 @elseif($action instanceof App\Like)
 
 @endif

@@ -25,6 +25,6 @@ Route::delete('article/{id}', '_ArticleController@delete')->middleware('auth:api
 
 
 Route::prefix('comment')->group(function(){
-    Route::post('/comment', '_CommentController@create')->middleware('auth:api')->name('.create');
-    Route::delete('/comment/{id}/delete', '_CommentController@create')->middleware('auth:api')->name('.delete');
+    Route::post('/new', '_CommentController@create')->middleware('auth:api')->name('.create');
+    Route::delete('/{id}/delete', '_CommentController@delete')->middleware('auth:api')->name('.delete');
 });
