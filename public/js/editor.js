@@ -115,11 +115,10 @@ window.addEventListener('DOMContentLoaded', function () {
       method: "POST",
       body: formData
     }).then(function (response) {
-      return response.text();
+      return response.json();
     }).then(function (response) {
       button.classList.add('success');
       button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
-      console.log(response);
       location.href = location.protocol + '/article/' + response.article.id;
     }).catch(function (data) {
       console.log('data', data);
@@ -143,7 +142,7 @@ window.addEventListener('DOMContentLoaded', function () {
       body: formData
     }).then(function (response) {
       console.log(formData);
-      response.text();
+      response.json();
     }).then(function (data) {}).catch(function (data) {
       console.log('data', data);
     });

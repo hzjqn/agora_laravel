@@ -13,16 +13,7 @@ class ViewController extends Controller
 {
     //
     public function index(){
-        $subArticles = [];
-
-        if(Auth::user()){
-            $subs = Auth::user()->following;
-            foreach($subs as $sub){
-                $subArticles[] = $sub->articles->last();
-            }
-        } else {
-            $allArticles = Article::all()->reverse()->take(5);
-        }
+        $allArticles = Article::all()->reverse()->take(5);
         $mostPopularArticles = Article::all()->reverse()->take(5);
 
         return view('index', compact('subArticles', 'allArticles', 'mostPopularArticles'));
