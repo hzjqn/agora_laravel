@@ -10466,6 +10466,11 @@ a.text-dark:focus {
   }
 }
 
+.container:not(.m),
+.container-fluid:not(.m) {
+  min-height: 100vh;
+}
+
 body,
 html {
   margin: 0px;
@@ -10475,10 +10480,6 @@ html {
 
 body.with-navbar {
   padding-top: 56px;
-}
-
-body.with-bottombar {
-  padding-bot: 64px;
 }
 
 a {
@@ -10727,17 +10728,7 @@ a.user-tag {
   color: #323232;
 }
 
-.agora-svg-logo.inverted {
-  mix-blend-mode: screen;
-  display: block;
-  margin-bottom: 64px;
-}
-
 .agora-svg-logo.inverted i.agora-logo {
-  padding-left: 32px;
-  line-height: 64px;
-  background-size: 24px, 64px;
-  font-size: 56px;
   color: #fff;
 }
 
@@ -10841,9 +10832,6 @@ a.user-tag {
   display: flex;
   border: none;
   outline: none;
-  width: calc(90% - 16px);
-  height: 100%;
-  margin: 0px 8px 16px;
   overflow: hidden;
   -webkit-transition: -webkit-box-shadow .25s ease;
   transition: -webkit-box-shadow .25s ease;

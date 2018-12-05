@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="tag-wrapper">
-                    <a href="" class="tag">#tag</a>
+                    {{ __($article->category->name) }}
                 </div>
 
                 {!! $article->content !!}

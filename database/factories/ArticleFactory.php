@@ -3,6 +3,7 @@
 use Faker\Generator as Faker;
 use App\Article;
 use App\User;
+use App\Category;
 
 $factory->define(App\Article::class, function (Faker $faker) {
     $isDraft = rand(0, 4) == 4 ? 1 : 0;
@@ -15,5 +16,6 @@ $factory->define(App\Article::class, function (Faker $faker) {
         'user_id' => $users->random()->id,
         'draft' =>  $isDraft,
         'cover' => 'https://picsum.photos/1200/600',
+        'category_id' => Category::all()->random()->id,
     ];
 });

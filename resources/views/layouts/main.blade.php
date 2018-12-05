@@ -28,14 +28,11 @@
     <link rel="stylesheet" href="/css/app.css">
     @yield('head-css')
 </head>
-<body class="{{ View::hasSection('navbar') ? 'with-navbar' : null }} {{ View::hasSection('botbar') ? 'with-bottombar' : null }}">
+<body class="{{ View::hasSection('navbar') ? 'with-navbar' : null }}">
     @if(View::hasSection('navbar'))
         @include('components.navbar')
     @endif
         @yield('content')
-    @if(View::hasSection('botbar'))
-        @include('components.bottombar')
-    @endif
 
     @include('components.footer')
 

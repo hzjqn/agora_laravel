@@ -22,6 +22,9 @@
 
 // Generic – reset and/or normalize styles, box-sizing definition, etc.
 
+.container:not(.m), .container-fluid:not(.m)
+    min-height: 100vh
+
 body,
 html
     margin: 0px
@@ -30,9 +33,6 @@ html
 
 body.with-navbar
     padding-top: $_navbar_height
-
-body.with-bottombar
-    padding-bot: 64px;
 
 // Links globales
 a
@@ -96,14 +96,7 @@ a.user-tag
         color: $_black
 
     &.inverted
-        mix-blend-mode: screen
-        display: block
-        margin-bottom: 64px
         i.agora-logo
-            padding-left: 32px
-            line-height: 64px
-            background-size: 24px, 64px
-            font-size: 56px
             color: $_white
 
 .agora-svg-logo.with-text
