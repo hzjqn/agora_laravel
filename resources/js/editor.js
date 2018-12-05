@@ -11,55 +11,54 @@ window.addEventListener('DOMContentLoaded', function(){
     });
 
     // Apuntamos a nuestro input para obtener el valor del titulo
-    const title = document.querySelector('input[name="title"]');
-    const user_id = document.querySelector('input[name="user_id"]');
-
-    const publishBtn = document.querySelector('button#publishBtn');
-    const saveBtn = document.querySelector('button#saveBtn');
+    const form = document.getElementById('editorMain');
+    const cover = form.querySelector('input[name="cover"]');
+    const token = form.querySelector('input[name="_token"]');
+    const title = form.querySelector('input[name="title"]');
+    const user_id = form.querySelector('input[name="user_id"]');
+    const publishBtn = document.getElementById('publishBtn');
+    const saveBtn = document.getElementById('saveBtn');
 
     // Apuntamos a nuestro article body para objetener el valor del mismo
     const content = document.querySelector('#article');
 
 
-    var formData = new FormData();
-
-    const form = document.getElementById('editorMain');
-
+    
+    
     form.addEventListener('submit', function(e){
         e.preventDefault();
     });
-
+    
     publishBtn.addEventListener('click', function(e){
         e.preventDefault();
-
-        const that = this;
-
+        
+        const button = this;
+        
         previousHTML = this.innerHTML;
         this.innerHTML = previousHTML + "<i class='fas fa-spin fa-circle-notch'></i>";
         saveBtn.disabled = true;
         this.disabled = true;
-
-        formData.append('title', title.value);
+        
+        let formData = new FormData();
+        formData.append('title', title.value)
+        formData.append('_token', token.value);
+        formData.append('cover', cover.files[0]);
         formData.append('content', content.innerHTML);
         formData.append('user_id', user_id.value);
 
-        setTimeout(function(){
-            button = that;
-            console.log('timeout');
-            fetch('/api/article', {
-                method: "POST",
-                body: formData
-            }).then(function(response){
-                return response.json();
-            }).then(function(response){
-                button.classList.add('success');
-                button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
-                console.log(response);
-                location.href = location.protocol+'/article/'+response.article.id;
-            }).catch(function(data){
-                console.log('data', data);
-            });
-        }, 2000);
+        fetch('/api/article/new', {
+            method: "POST",
+            body: formData
+        }).then(function(response){
+            return response.text();
+        }).then(function(response){
+            button.classList.add('success');
+            button.innerHTML = "<i class='fas fa-spin fa-circle-notch'></i>";
+            console.log(response);
+            location.href = location.protocol+'/article/'+response.article.id;
+        }).catch(function(data){
+            console.log('data', data);
+        });
     });
 
     saveBtn.addEventListener('click', function(e){
@@ -72,18 +71,21 @@ window.addEventListener('DOMContentLoaded', function(){
         saveBtn.disabled = true;
         this.disabled = true;
 
+        let formData = new FormData();
+
         formData.append('title', title.value);
         formData.append('content', content.innerHTML);
         formData.append('user_id', user_id.value);
+        formData.append('cover', cover.files[0]);
         formData.append('draft', 1);
 
 
-        fetch('/api/article', {
+        fetch('/api/article/new', {
             method: "POST",
             body: formData
         }).then(function(response){
             console.log(formData)
-            response.json();
+            response.text();
         }).then(function(data){
         }).catch(function(data){
             console.log('data', data);

@@ -5,8 +5,13 @@
 @section('content')
 <div class="container">
     <div class="row feed">
-        @component('components.mainfeed', ['articles' => $allArticles, 'title' => __('From your subcriptions')])
-        @endcomponent
+        @if($subArticles)
+            @component('components.mainfeed', ['articles' => $subArticles, 'title' => __('From your subcriptions')])
+            @endcomponent
+        @else
+            @component('components.mainfeed', ['articles' => $allArticles, 'title' => __('Recommended for you')])
+            @endcomponent
+        @endif
         
         @component('components.popfeed', ['articles' => $mostPopularArticles,  'title' => __('Most popular articles')])
         @endcomponent

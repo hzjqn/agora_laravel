@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('article', '_ArticleController@index');
 Route::get('article/{id}', '_ArticleController@show');
-Route::post('article', '_ArticleController@create');
+Route::post('article/new', '_ArticleController@create');
 Route::put('article/{id}', '_ArticleController@create')->middleware('auth:api');
 Route::delete('article/{id}', '_ArticleController@delete')->middleware('auth:api');
 
-Route::post('comment/new', '_CommentController@new');
+
+Route::prefix('comment')->group(function(){
+    Route::post('/comment', '_CommentController@create')->middleware('auth:api')->name('.create');
+    Route::delete('/comment/{id}/delete', '_CommentController@create')->middleware('auth:api')->name('.delete');
+});

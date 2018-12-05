@@ -1,6 +1,6 @@
 @if($type == 'article')
     <article class="card article {{ $classes ?? '' }}">
-        <div class="cover" style="background-image:url('{{ $action->cover }}')">
+        <div class="cover" style="background-image:url('{{ asset($action->cover) }}')">
         <header>
         <a href="{{ route('article.index') }}/{{ $action->id }}"><h3 class="card-title">{{ $action->title }}</h3></a>
             <div class="author-reference">

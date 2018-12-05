@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('navbar', '')
-@section('botbar', '')
 
 @section('head-js')
 @endsection
@@ -9,19 +8,22 @@
 @section('content')
 <div class="container">
     <form class="editor solid-form" id="editorMain" autocomplete="off">
+        @csrf
         <div class="input-case title">
             <input type="text" autocomplete="false" name="user_id"  value="{{ Auth::user()->id }}" hidden>
             <input data-max-chars="190" type="text" autocomplete="false" name="title" class="editor title-input solid-title-input" value="{{ old('title') ?? __('') }}">
             <label for="title">{{ __('Title') }}</label>
         <span class="length-indicator"><i class="counter">0/190</i>&nbsp;— {{ __('Title character limit') }}</span>
         </div>
+        <div class="input-case">    
+            <label for="cover">Subir una foto de portada</label><br>
+            <input type="file" name="cover" id="cover">
+        </div>
         <div id="editorToolbar" class="editor toolbar">
 
         </div>
         <div id="article" autofocus="true" class="editor-canvas editable" placeholder="{{ __("Write here.") }}">
         </div>
-        <label for="cover">Subir una foto de portada</label><br>
-        <input type="file" name="cover" id="cover">
         <div class="editor-form">
             <button id="publishBtn" class="btn objective">
                 {{ __('Publish') }}

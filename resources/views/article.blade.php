@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
             <main class="article body" id="article">
-                <div class="cover" style="background-image: url('{{ $article->cover }}')">
+                <div class="cover" style="background-image: url('{{ asset($article->cover) }}')">
                     asdfasdf
                 </div>
 

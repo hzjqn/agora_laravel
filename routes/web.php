@@ -11,17 +11,12 @@
 |
 */
 
-Route::group(['middleware'=>'auth'],function () {
-        Route::get('/', "ViewController@index");
-    }
-);
+Route::get('/', "ViewController@index")->middleware('auth');
 
 
-Route::get('/faq')->name('faq');
-Route::get('/privacy')->name('privacy');
-Route::get('/javascript', function(){
-    return view('js/string');
-});
+
+Route::get('/faq', 'ViewController@faq')->name('faq');
+Route::get('/privacy', 'ViewController@privacy')->name('privacy');
 
 Route::prefix('article')->name('article.')->group(function () {
     Route::get('/', 'ArticleController@index')->name('index');
@@ -62,17 +57,14 @@ Route::group(['prefix' => 'likes'], function () {
     Route::post('/unilike', 'LikeController@unlike');
 });
 
-Route::group(['prefix' => 'follow'], function () {
-    Route::post('/follow', 'FollowController@follow')->name('follow');
-    Route::post('/unfollow', 'FollowController@unfollow');
-});
-
 Route::prefix('account')->name('account')->middleware('auth')->group(function(){
     Route::get('/', 'AccountController@show');
     Route::get('/edit', 'AccountController@edit')->name('.edit');
     Route::post('/edit', 'AccountController@show')->name('.save');
 });
 
+Route::post('/follow', 'FollowController@follow')->name('follow');
+Route::delete('/unfollow', 'FollowController@unfollow')->name('unfollow');
 
 // Solucionar el problema con mail -> sender
 Auth::routes();

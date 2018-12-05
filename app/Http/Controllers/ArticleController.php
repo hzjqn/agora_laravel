@@ -37,12 +37,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $article = Article::create();
-        $article->content = $request->content;
-        $article->title = $request->title;
-        $article->user_id = $request->user_id;
-        $article->save();
+        $path = $request->file('cover')->store('covers');
+        
+        $article = Article::create(['title' => $request->input('title'), 'content' => $request->input('title'), 'cover' => $path, 'user_id' => Auth::user()->id]);
     }
 
     /**
@@ -89,5 +86,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+        $article->destroy();
     }
 }

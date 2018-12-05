@@ -1,6 +1,6 @@
 
 window.addEventListener('load', function(e){
-    // Navbar article lenght/progress indicator
+    /* // Navbar article lenght/progress indicator
     window.addEventListener('scroll', function(){
         changeProgressIndicator();
     });
@@ -11,5 +11,5 @@ window.addEventListener('load', function(e){
         let progressBarWidth = Math.ceil((((window.scrollY - article.offsetTop + (document.body.scrollHeight - article.scrollHeight))) / article.scrollHeight) * 100);
         articleProgressIndicator.style.width = progressBarWidth +'vw';
         console.log(progressBarWidth);
-    };
+    }; */
 });

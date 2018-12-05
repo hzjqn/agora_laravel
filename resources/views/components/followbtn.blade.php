@@ -1,12 +1,26 @@
 @auth
-<form action="{{ Auth::user()->following->find($followed->id) ? route('unfollow') : route('follow') }}" method="{{ Auth::user()->following->find($id_to_follow) ? 'delete' : 'post' }}">
-        @csrf
-        <input type="number" hidden value="{{ $follower->id }}" name="follower_id">
-        <input type="number" hidden value="{{ $followed->id }}" name="followed_id">
-        <button class="follow-btn" type="submit">
-            {{ __('Follow') }}
-        </button>
-    </form>
+@php 
+    $notSameUser = Auth::user()->id !== $followed->id;
+    $alreadyFollowing = Auth::user()->following->contains($followed) ? true : false;
+@endphp
+    @if($notSameUser)
+        <form class="follow-form" action="{{ $alreadyFollowing ? route('unfollow') : route('follow') }}" method="{{ Auth::user()->following->find($followed->id) ? 'delete' : 'post' }}">
+            @csrf
+            <input type="number" hidden value="{{ $followed->id }}" name="followed_id">
+            @if(!$alreadyFollowing)
+                <button class="btn follow-btn follow" type="submit">
+                    {{ __('Follow') }}
+                </button>
+            @elseif($alreadyFollowing)
+                <button class="btn follow-btn unfollow" type="submit">
+                    {{ __('Unfollow') }}
+                </button>
+            @endif
+        </form>
+
+    @else 
+
+    @endif
 @else
 <span class="d-block mb-2 mt-5">{{ __('To follow this user') }}</span>
     <a href="{{ route('login') }}" class="btn objective"> {{ __('Sign in') }}</a>

@@ -10474,7 +10474,7 @@ html {
 }
 
 body.with-navbar {
-  padding-top: 84px;
+  padding-top: 56px;
 }
 
 body.with-bottombar {
@@ -10800,8 +10800,16 @@ a.user-tag {
   display: -ms-flexbox;
   display: flex;
   padding: .25em 1em;
-  background: #0088ff;
   margin: .5em 0em;
+  color: #fff;
+}
+
+.btn.follow-btn.follow {
+  background: #0088ff;
+}
+
+.btn.follow-btn.unfollow {
+  background: #006dcc;
 }
 
 .btn.navbar-objective {
@@ -11524,18 +11532,9 @@ aside#author h3 {
   text-align: center;
 }
 
-@media screen and (min-width: 995px) {
-  aside#author {
-    position: fixed;
-    width: 280px;
-  }
-}
-
 #editorMain {
   padding: 0em 2.25em;
   border-radius: 0em 0em 1em 1em;
-  -webkit-box-shadow: 0px 0px 99px 0px rgba(50, 50, 50, 0.29);
-          box-shadow: 0px 0px 99px 0px rgba(50, 50, 50, 0.29);
 }
 
 #editorMain .editor-canvas {

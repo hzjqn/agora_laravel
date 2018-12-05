@@ -74,11 +74,11 @@ class User extends Authenticatable
      * Returns all the users that the user follows
      */
     public function following(){
-        return $this->belongsToMany(Follow::class, 'follower_id');
+        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
     }
 
     public function followed(){
-        return $this->belongsToMany(Follow::class, 'followed_id');
+        return $this->belongsToMany(User::class,'follows', 'followed_id', 'follower_id');
     }
 
     public function comments(){

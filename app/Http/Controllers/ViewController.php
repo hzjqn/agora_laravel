@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Comment;
@@ -12,9 +13,18 @@ class ViewController extends Controller
 {
     //
     public function index(){
-        $allArticles = Article::all()->reverse()->take(5);
+        $subArticles = [];
+
+        if(Auth::user()){
+            $subs = Auth::user()->following;
+            foreach($subs as $sub){
+                $subArticles[] = $sub->articles->last();
+            }
+        } else {
+            $allArticles = Article::all()->reverse()->take(5);
+        }
         $mostPopularArticles = Article::all()->reverse()->take(5);
 
-        return view('index', compact('allArticles', 'mostPopularArticles'));
+        return view('index', compact('subArticles', 'allArticles', 'mostPopularArticles'));
     }
 }
