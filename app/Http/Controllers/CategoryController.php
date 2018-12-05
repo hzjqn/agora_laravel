@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
-use Illuminate\Support\Facades\Auth;
+use App\Category;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +25,6 @@ class ArticleController extends Controller
     public function create()
     {
         //
-        return view('editor');
     }
 
     /**
@@ -37,30 +35,28 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('cover')->store('covers');
-        
-        $article = Article::create(['title' => $request->input('title'), 'content' => $request->input('title'), 'cover' => $path, 'user_id' => Auth::user()->id]);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        $article = Article::find($id);
-        return view('article', ['article' => $article]);
+        //
+        return view('category', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit(Category $category)
     {
         //
     }
@@ -69,10 +65,10 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Article  $article
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -80,12 +76,11 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(Category $category)
     {
         //
-        $article->destroy();
     }
 }

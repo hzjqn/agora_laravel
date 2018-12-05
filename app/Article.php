@@ -9,7 +9,7 @@ use App\Like;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'content', 'user_id'];
+    protected $fillable = ['title', 'content', 'user_id', 'cover'];
 
     //
     public function user() {
@@ -20,7 +20,11 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function like(){
-        return $this->hasMany(Like::class);
+    public function tag(){
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }

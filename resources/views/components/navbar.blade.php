@@ -1,5 +1,5 @@
 <nav class="navbar-expand-lg navbar-agora">
-    <div class="container">
+    <div class="container m">
         <div class="navbar-header-container">
         <div class="navbar-brand flex-grow-1"><a href=" {{ route('home') }} "><h1 class="agora-svg-logo with-text"><i class="agora-logo">ágora</i></h1></a></div>
             <div class="static-navbar-elements d-none d-sm-flex">

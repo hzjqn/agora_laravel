@@ -2,9 +2,6 @@
     display: flex
     border: none
     outline: none
-    width: calc(100% - 16px)
-    height: 100%
-    margin: 0px 8px 16px
     overflow: hidden
     transition: box-shadow .25s ease
 
@@ -13,13 +10,17 @@
         text-decoration: none
 
     &.article
-        display: block
+        display: flex
         float: left
         vertical-align: text-top
-        width: 280px
-        height: 200px
+        width: calc(100% - 56px)
+        height: 300px
         margin: 8px
         box-shadow: $_shadow_1
+
+        .cover
+            background-size: cover
+            background-position: 50%, 50% 
 
         .author-reference
             text-shadow: 0px 0px 32px 0px $_shade
@@ -32,21 +33,20 @@
         @media screen and (min-width: $_md)
             width: calc(50% - 16px)
             &.main-card
-                height: 300px
                 width: calc(100% - 16px)
 
         header
             display: flex
             flex-direction: column
             justify-content: flex-end
-            height: 75%
             width: 100%
+            min-height: calc(100% - 64px)
+            padding: 8px 0px
 
         h3.card-title
             font-family: 'PT Serif', serif
             padding: 0px 8px
-            bottom: 64px
-            font-size: 24px
+            font-size: 18px
             width: 100%
             white-space: wrap
             text-overflow: ellipsis
@@ -55,7 +55,7 @@
             text-transform: capitalize
             text-shadow: 0px 0px 32px 0px $_shade
 
-            @media screen and (min-width: $_md)
+            @media screen and (min-width: $_lg)
                 font-size: 32px
         
         summary
@@ -81,7 +81,7 @@
         padding: 8px
 
         &+.spacer
-            border-top: 1px dotted $_black
+            border-top: 1px dotted $_shade
             margin: 0px 64px
 
 

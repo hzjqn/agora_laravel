@@ -1,12 +1,11 @@
 @extends('layouts.main')
 
 @section('navbar', '')
-@section('botbar', '')
 
 @section('content')
-<div class="container feed">
+<div class="container">
     <div class="row feed">
-        @component('components.mainfeed', ['articles' => $allArticles, 'title' => __('From your subcriptions')])
+        @component('components.mainfeed', ['articles' => $allArticles, 'title' => __('Recommended for you')])
         @endcomponent
         
         @component('components.popfeed', ['articles' => $mostPopularArticles,  'title' => __('Most popular articles')])

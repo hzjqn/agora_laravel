@@ -14,8 +14,7 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
-
-
+    var_dump(App\User::count());
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,

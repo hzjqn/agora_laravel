@@ -10,7 +10,8 @@ class _ArticleController extends Controller
     public function create(Request $request){
         $response = [];
         try{
-            $article = Article::create($request->except('_token'));
+            $path = str_replace('public','storage', $request->file('cover')->store('public/cover'));
+            $article = Article::create(['title' => $request->input('title'), 'content' => $request->input('content'), 'user_id' => $request->input('user_id'), 'cover' => $path, 'draft' => 0]);
             $response['status'] = 'ok';
             $response['article'] = $article->toArray();
         } catch (Exception $e) {

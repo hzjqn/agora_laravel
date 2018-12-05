@@ -10,11 +10,12 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+
 mix
-    .js('resources/js/app.js', 'public/js')
-    .js('resources/js/main.js', 'public/js')
-    .js('resources/js/solid.js', 'public/js')
-    .js('resources/js/article.js', 'public/js')
-    .js('resources/js/editor.js', 'public/js')
-    .js('resources/js/mainfeed.js', 'public/js')
-    .sass('resources/sass/app.sass', 'public/css').disableSuccessNotifications();
+   //.react('resources/js/app.js', 'public/js')
+   .js('resources/js/main.js', 'public/js')
+   .js('resources/js/solid.js', 'public/js')
+   .js('resources/js/article.js', 'public/js')
+   .js('resources/js/editor.js', 'public/js')
+   .js('resources/js/mainfeed.js', 'public/js')
+   .sass('resources/sass/app.sass', 'public/css').disableSuccessNotifications();

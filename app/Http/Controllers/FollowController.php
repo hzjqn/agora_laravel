@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Follow;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FollowController extends Controller
 {
@@ -33,9 +35,36 @@ class FollowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function follow(Request $request)
+    {    //
+        $follower_id = Auth::user()->id;
+        $followed_id = User::find($request->input('followed_id'))->id;
+
+        Follow::create(['followed_id' => $followed_id, 'follower_id' => $follower_id]);
+        $response = [
+            'status' => 'ok',
+            'data' => [
+                'follower' => $follower_id,
+                'followed' => $followed_id
+            ],
+            'followbtn' => [
+                'html' => __('Unfollow')
+            ]
+        ];
+        return response()->json($response, 200);
+    }
+
+    public function unfollow(Request $request)
+    {    //
+        $follow = Follow::where('followed_id', $request->input('followed_id'))->where('follower_id', Auth::user()->id);
+        $follow->delete();
+        $response = [
+            'status' => 'ok',
+            'followbtn' => [
+                'html' => __('Follow')
+            ]
+        ];
+        return response()->json($response, 200);
     }
 
     /**

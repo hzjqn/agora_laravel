@@ -60,36 +60,35 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 48:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
 
-/***/ 49:
+/***/ 6:
 /***/ (function(module, exports) {
 
-
 window.addEventListener('load', function (e) {
-    // Navbar article lenght/progress indicator
-    window.addEventListener('scroll', function () {
-        changeProgressIndicator();
-    });
-    changeProgressIndicator = function changeProgressIndicator() {
-        var articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
-        var article = document.getElementById('article');
-        var lecturePoint = Math.ceil(window.innerHeight * 1 / article.scrollHeight - window.scrollY);
-        var progressBarWidth = Math.ceil((window.scrollY - article.offsetTop + (document.body.scrollHeight - article.scrollHeight)) / article.scrollHeight * 100);
-        articleProgressIndicator.style.width = progressBarWidth + 'vw';
-        console.log(progressBarWidth);
-    };
+  /* // Navbar article lenght/progress indicator
+  window.addEventListener('scroll', function(){
+      changeProgressIndicator();
+  });
+  changeProgressIndicator = function(){
+      const articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
+      const article = document.getElementById('article');
+      let lecturePoint = Math.ceil(window.innerHeight * 1 / article.scrollHeight - window.scrollY);
+      let progressBarWidth = Math.ceil((((window.scrollY - article.offsetTop + (document.body.scrollHeight - article.scrollHeight))) / article.scrollHeight) * 100);
+      articleProgressIndicator.style.width = progressBarWidth +'vw';
+      console.log(progressBarWidth);
+  }; */
 });
 
 /***/ })

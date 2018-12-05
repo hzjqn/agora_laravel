@@ -10466,6 +10466,11 @@ a.text-dark:focus {
   }
 }
 
+.container:not(.m),
+.container-fluid:not(.m) {
+  min-height: 100vh;
+}
+
 body,
 html {
   margin: 0px;
@@ -10474,11 +10479,7 @@ html {
 }
 
 body.with-navbar {
-  padding-top: 84px;
-}
-
-body.with-bottombar {
-  padding-bot: 64px;
+  padding-top: 56px;
 }
 
 a {
@@ -10718,7 +10719,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
+  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -10727,17 +10728,7 @@ a.user-tag {
   color: #323232;
 }
 
-.agora-svg-logo.inverted {
-  mix-blend-mode: screen;
-  display: block;
-  margin-bottom: 64px;
-}
-
 .agora-svg-logo.inverted i.agora-logo {
-  padding-left: 32px;
-  line-height: 64px;
-  background-size: 24px, 64px;
-  font-size: 56px;
   color: #fff;
 }
 
@@ -10761,7 +10752,7 @@ a.user-tag {
   font-weight: bold;
   line-height: 32px;
   display: block;
-  background: url(/images/iso.color.svg?7420e4a7d1777b3fb6220f40af7807ce) no-repeat;
+  background: url(/images/iso.color.svg?c053ff34d1f11e54f30166b7ce3b990b) no-repeat;
   padding-left: 16px;
   background-size: 13px, 32px;
   background-position: left center;
@@ -10800,8 +10791,16 @@ a.user-tag {
   display: -ms-flexbox;
   display: flex;
   padding: .25em 1em;
-  background: #0088ff;
   margin: .5em 0em;
+  color: #fff;
+}
+
+.btn.follow-btn.follow {
+  background: #0088ff;
+}
+
+.btn.follow-btn.unfollow {
+  background: #006dcc;
 }
 
 .btn.navbar-objective {
@@ -10833,9 +10832,6 @@ a.user-tag {
   display: flex;
   border: none;
   outline: none;
-  width: calc(100% - 16px);
-  height: 100%;
-  margin: 0px 8px 16px;
   overflow: hidden;
   -webkit-transition: -webkit-box-shadow .25s ease;
   transition: -webkit-box-shadow .25s ease;
@@ -10849,14 +10845,21 @@ a.user-tag {
 }
 
 .card.article {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   float: left;
   vertical-align: text-top;
-  width: 280px;
-  height: 200px;
+  width: calc(100% - 56px);
+  height: 300px;
   margin: 8px;
   -webkit-box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.04), 0px 2px 4px 0px rgba(50, 50, 50, 0.29);
           box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.04), 0px 2px 4px 0px rgba(50, 50, 50, 0.29);
+}
+
+.card.article .cover {
+  background-size: cover;
+  background-position: 50%, 50%;
 }
 
 .card.article .author-reference {
@@ -10876,7 +10879,6 @@ a.user-tag {
   }
 
   .card.article.main-card {
-    height: 300px;
     width: calc(100% - 16px);
   }
 }
@@ -10892,15 +10894,15 @@ a.user-tag {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  height: 75%;
   width: 100%;
+  min-height: calc(100% - 64px);
+  padding: 8px 0px;
 }
 
 .card.article h3.card-title {
   font-family: 'PT Serif', serif;
   padding: 0px 8px;
-  bottom: 64px;
-  font-size: 24px;
+  font-size: 18px;
   width: 100%;
   white-space: wrap;
   text-overflow: ellipsis;
@@ -10910,7 +10912,7 @@ a.user-tag {
   text-shadow: 0px 0px 32px 0px rgba(50, 50, 50, 0.29);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 980px) {
   .card.article h3.card-title {
     font-size: 32px;
   }
@@ -10948,7 +10950,7 @@ a.user-tag {
 }
 
 .card.pop + .spacer {
-  border-top: 1px dotted #323232;
+  border-top: 1px dotted rgba(50, 50, 50, 0.29);
   margin: 0px 64px;
 }
 
@@ -11355,40 +11357,9 @@ h2.feed-title {
   }
 }
 
-@media screen and (max-width: 480px) {
-  .feed.container {
-    padding: 0px;
-  }
-}
-
-.mainfeed {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-.mainfeed:after {
-  content: 'flickity';
-  display: none;
-  visibility: hidden;
-}
-
-@media screen and (min-width: 768px) {
-  .mainfeed:after {
-    content: '';
-  }
-}
-
-h2.feed-title {
-  font-family: 'PT Sans', sans-serif;
-  text-align: center;
-  font-size: 18px;
-  color: #aaa;
-}
-
-@media screen and (min-width: 768px) {
-  h2.feed-title {
-    text-align: left;
-  }
+.feed {
+  margin: 0px;
+  margin-bottom: 2em;
 }
 
 @media screen and (max-width: 480px) {
@@ -11398,8 +11369,7 @@ h2.feed-title {
 }
 
 .mainfeed {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin: 0px -15px 2em;
 }
 
 .mainfeed:after {
@@ -11473,6 +11443,7 @@ h2.feed-title {
 
 #article .cover {
   background-size: cover;
+  background-position: 50%, 50%;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -11555,18 +11526,9 @@ aside#author h3 {
   text-align: center;
 }
 
-@media screen and (min-width: 995px) {
-  aside#author {
-    position: fixed;
-    width: 280px;
-  }
-}
-
 #editorMain {
   padding: 0em 2.25em;
   border-radius: 0em 0em 1em 1em;
-  -webkit-box-shadow: 0px 0px 99px 0px rgba(50, 50, 50, 0.29);
-          box-shadow: 0px 0px 99px 0px rgba(50, 50, 50, 0.29);
 }
 
 #editorMain .editor-canvas {
@@ -11594,6 +11556,14 @@ aside#author h3 {
 
 #editorMain .editor-form *:last-child {
   margin-left: 1em;
+}
+
+#editorMain label[for="cover"] {
+  margin: 2em 0em 0em;
+}
+
+#editorMain input[type="file"] {
+  margin: 1em 0em 5em;
 }
 
 footer {
