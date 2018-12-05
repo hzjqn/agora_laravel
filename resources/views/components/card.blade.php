@@ -39,7 +39,7 @@
             <h4>{{ $comment->user->name }}</h4>
         </div>
         <div>
-            {{$comment->content}}
+            {!! $comment->content !!}
         </div>
        
     </article>
