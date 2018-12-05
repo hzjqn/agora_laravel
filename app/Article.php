@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Comment;
+use App\Like;
 
 class Article extends Model
 {
@@ -17,5 +18,9 @@ class Article extends Model
 
     public function comment(){
         return $this->hasMany(Comment::class);
+    }
+
+    public function like(){
+        return $this->hasMany(Like::class);
     }
 }

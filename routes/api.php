@@ -23,4 +23,6 @@ Route::post('article', '_ArticleController@create');
 Route::put('article/{id}', '_ArticleController@create')->middleware('auth:api');
 Route::delete('article/{id}', '_ArticleController@delete')->middleware('auth:api');
 
-Route::post('comment/new', '_CommentController@new');
+Route::get('comment/new', '_CommentController@create');
+Route::post('comment/new', '_CommentController@store');
+

@@ -35,7 +35,7 @@
                 <h4>Comentarios</h4>
                 <div class="container">
                   <form action="">
-                        <input type="text">
+                        <input type="text" name='comment'>
                         <button type="submit">Enviar</button>
                   </form>
                 </div>
