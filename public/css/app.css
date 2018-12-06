@@ -10466,10 +10466,10 @@ a.text-dark:focus {
   }
 }
 
-.container:not(.m),
+/*.container:not(.m),
 .container-fluid:not(.m) {
-  min-height: 100vh;
-}
+ /* min-height: 100vh;
+}*/
 
 body,
 html {
@@ -10973,7 +10973,7 @@ a.user-tag {
 }
 
 .card.comment h4 {
-  font-size: 20px;
+  font-size: 1,5em;
   color: #0088ff;
 }
 
