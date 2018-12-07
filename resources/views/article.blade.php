@@ -34,21 +34,20 @@
             <section id="comments">
                 <h4>Comentarios</h4>
                 <div class="container">
-                <div>
-                    @foreach($article->comments as $comment)
                     <div>
-                        @component('components.card', ['action' => $comment, 'type' => 'comment'])
-                        @endcomponent
-                    </div>
-                    @endforeach
-
+                        @foreach($article->comments as $comment)
+                        <div>
+                            @component('components.card', ['action' => $comment, 'type' => 'comment'])
+                            @endcomponent
+                        </div>
+                        @endforeach
                 </div>
                   <form action="/api/comment/new" method='POST' id="commentForm">
                     @csrf
                         <input type="text" value='{{Auth::user()->id}}' name="user_id" hidden>
                         <input type="text" value='{{$article->id}}' name="article_id" hidden>
                         <div id='commentEditor' contenteditable=true type="text" name='content' >
-                            <span class='placeholder'>Tu comentario</span>
+                              <span class='placeholder'>Tu comentario</span>
                         </div>
                         <button type="submit">Enviar</button>
                   </form>

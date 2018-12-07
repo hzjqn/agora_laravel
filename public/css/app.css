@@ -10466,10 +10466,10 @@ a.text-dark:focus {
   }
 }
 
-.container:not(.m),
+/*.container:not(.m),
 .container-fluid:not(.m) {
-  min-height: 100vh;
-}
+ /* min-height: 100vh;
+}*/
 
 body,
 html {
@@ -10962,6 +10962,19 @@ a.user-tag {
   font-weight: 600;
   color: #323232;
   font-size: 18px;
+}
+
+.card.comment {
+  margin: 10px;
+  z-index: 1;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.04), 0px 2px 4px 0px rgba(50, 50, 50, 0.29);
+          box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.04), 0px 2px 4px 0px rgba(50, 50, 50, 0.29);
+}
+
+.card.comment h4 {
+  font-size: 1,5em;
+  color: #0088ff;
 }
 
 .action-bar {

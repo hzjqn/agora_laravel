@@ -76,6 +76,9 @@ Route::prefix('account')->name('account')->middleware('auth')->group(function(){
 Route::post('/follow', 'FollowController@follow')->name('follow');
 Route::delete('/unfollow', 'FollowController@unfollow')->name('unfollow');
 
+Route::post('/comment/new', '_CommentController@create')->name('comment.create');
+Route::delete('/comment/{id}/delete', '_CommentController@delete')->name('comment.delete');
+
 // Solucionar el problema con mail -> sender
 Auth::routes();
 Route::get('activate/{token}', 'Auth\RegisterController@activate')

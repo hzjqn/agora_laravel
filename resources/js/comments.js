@@ -5,22 +5,24 @@ window.addEventListener('DOMContentLoaded', function(){
     const article_id = document.querySelector('input[name="article_id"]');
     const _token = document.querySelector('input[name="_token"]');
 
-    comment = {
-        content: content.innerHTML,
-        user_id: user_id.value,
-        article_id: article_id.value,
-        _token: _token.value
-    }
 
-    formData = new FormData(JSON.stringify(comment));
 
     commentForm.addEventListener('submit', function(e){
+
         e.preventDefault();
-        fetch('/api/comment/new', {
+            
+        formData = new FormData();
+        formData.append('content', content.innerHTML);
+        formData.append('content', content.innerHTML);
+        formData.append('user_id', user_id.value);
+        formData.append('article_id', article_id.value);
+        formData.append('_token', _token.value);
+
+        fetch('/comment/new', {
             method: 'POST',
             body: formData
         }).then((response) => {
-            return response.json()
+            return response.text()
         }).then((response)=>{
             console.log('success', response);
         }).catch((err) => {

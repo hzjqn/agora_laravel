@@ -5,11 +5,11 @@
     overflow: hidden
     transition: box-shadow .25s ease
 
-    a
+    a // .card a
         color: inherit
         text-decoration: none
 
-    &.article
+    &.article // .card.article
         display: flex
         float: left
         vertical-align: text-top
@@ -71,7 +71,7 @@
             overflow: hidden
 
         .cover
-            z-index: 1;
+            z-index: 1
             width: 100%
             height: 100%
             position: absolute
@@ -92,6 +92,18 @@
             font-weight: 600
             color: $_black
             font-size: 18px
+
+    &.comment
+        margin: 10px
+        z-index: 1
+        padding: 10px
+        box-shadow: $_shadow_1
+        h4
+            font-size: 1,5em
+            color: #0088ff
+        
+            
+
 
 .action-bar
     display: flex

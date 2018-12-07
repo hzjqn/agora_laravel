@@ -18,4 +18,12 @@ class ViewController extends Controller
 
         return view('index', compact('subArticles', 'allArticles', 'mostPopularArticles'));
     }
+
+    public function faq(){
+        return view('faq');
+    }
+
+    public function privacy(){
+        return view('privacy');
+    }
 }
