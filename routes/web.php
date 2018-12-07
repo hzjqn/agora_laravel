@@ -84,4 +84,4 @@ Auth::routes();
 Route::get('activate/{token}', 'Auth\RegisterController@activate')
     ->name('activate');
 
-Route::get('/home', 'ViewController@index')->name('home');
+Route::get('/home', 'ViewController@index')->name('home')->middleware('auth');

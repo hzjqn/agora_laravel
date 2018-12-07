@@ -3,12 +3,20 @@
     z-index: $_navbar_level
     background: $_white
 
+
     ul
         display: inline-block
-        text-align: center
+        text-align: left
         width: 100%
+        @media screen and (max-width: $_md)
+            &
+                &:after
+                    display: none
+                    visibility: hidden
+                    content: 'flickity'
+
         li
-            display: inline
+            display: inline-block
             
             a
                 padding: 8px 16px
@@ -23,17 +31,21 @@
     top: 0px
     left: 0px
     width: 100%
-    height: $_navbar_height
+    height: $_navbar_height + 30px
     position: fixed
     background: $_white
     border: none
     padding: .25em
+    display: flex
     flex-direction: column
     z-index: $_navbar_level
     transition: box-shadow .25s ease
     
     &.not        
         box-shadow: 0px 2px 16px 0px $_shade
+
+    .navbar-header
+        display: flex
     
     .navbar-brand
         display: block
@@ -41,7 +53,7 @@
             display: inline-block
             text-decoration: none
     ul.navbar-nav
-        justify-content: center
+        justify-content: flex-end
         flex-direction: row
 
         .nav-item
@@ -59,23 +71,6 @@
                 i
                     display: inline-block
 
-    
-    .container,
-    .container-fluid
-        display: flex
-        flex-direction: column
-        justify-content: flex-end
-        
-        .navbar-header-container
-            flex: 1
-            flex-direction: row
-            display: flex
-            justify-content: center
-            align-items: center
-
-        .navbar-content-container
-            display: flex
-            flex-direction: column
 
     @media screen and (min-width: 992px)
         .container,

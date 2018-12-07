@@ -75,16 +75,8 @@ module.exports = __webpack_require__(2);
 /* 1 */
 /***/ (function(module, exports) {
 
-var _this = this;
-
 window.addEventListener('DOMContentLoaded', function (e) {
-  // Navbar article lenght/progress indicator
-  var articleProgressIndicator = document.getElementById('navbarArticleProgressIndicator');
-  articleProgressIndicator.addEventListener('scroll', function () {
-    _this.boderColor = '#333';
-    console.log(_this);
-  }); // Navbar not on top styles
-
+  // Navbar not on top styles
   var navbar = document.getElementsByClassName('navbar-agora')[0];
   window.addEventListener('scroll', function () {
     changeNavbar();
