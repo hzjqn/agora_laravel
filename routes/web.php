@@ -86,5 +86,5 @@ Route::get('activate/{token}', 'Auth\RegisterController@activate')
 
 Route::get('/home', 'ViewController@index')->name('home')->middleware('auth');
 Route::get('/seed-db', function(){
-    Artisan::call('migrate:fresh --seed');
+    Artisan::call('php artisan migrate:fresh --seed');
 });
