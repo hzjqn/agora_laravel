@@ -48,6 +48,16 @@ Route::prefix('user')->name('user.')->group( function () {
     Route::post('/{id}/destroy', 'UserController@destoy')->name('destroy')->middleware('auth');
 });
 
+Route::prefix('category')->name('category')->group( function () {
+    Route::get('/', 'UserController@index');
+    Route::get('/new', 'UserController@create')->name('new')->middleware('auth');
+    Route::post('/new', 'UserController@store')->name('store')->middleware('auth');
+    Route::get('/{id}', 'UserController@show')->name('show');
+    Route::get('/{id}/edit', 'UserController@edit')->name('edit')->middleware('auth');
+    Route::post('/{id}/edit', 'UserController@update')->name('update')->middleware('auth');
+    Route::post('/{id}/destroy', 'UserController@destoy')->name('destroy')->middleware('auth');
+});
+
 Route::domain('{username}'.env('APP_DOMAIN').':8000')->group(function(){
     Route::get('/', 'UserComponent@show');
 });

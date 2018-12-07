@@ -30,7 +30,7 @@
 </head>
 <body class="{{ View::hasSection('navbar') ? 'with-navbar' : null }}">
     @if(View::hasSection('navbar'))
-        @include('components.navbar')
+        @include('components.navbar');
     @endif
         @yield('content')
 

@@ -10991,6 +10991,36 @@ a.user-tag {
   height: 32px;
 }
 
+.topic-navbar {
+  width: 100%;
+  z-index: 90909090;
+  background: #fff;
+}
+
+.topic-navbar ul {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.topic-navbar ul li {
+  display: inline;
+}
+
+.topic-navbar ul li a {
+  padding: 8px 16px;
+}
+
+.topic-navbar ul li a:link,
+.topic-navbar ul li a:visited {
+  color: rgba(50, 50, 50, 0.29);
+}
+
+.topic-navbar ul li a:hover {
+  color: #323232;
+  text-decoration: none;
+}
+
 .navbar-agora {
   top: 0px;
   left: 0px;
@@ -11359,6 +11389,7 @@ h2.feed-title {
 
 .feed {
   margin: 0px;
+  margin-top: 2em;
   margin-bottom: 2em;
 }
 
